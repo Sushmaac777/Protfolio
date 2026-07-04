@@ -88,7 +88,6 @@ export function Achievements() {
         <div className="achievements-layout">
           <div className="achievements-hero">
             <div className="achievements-intro">
-              <span className="achievements-eyebrow">{achievements.eyebrow}</span>
               <h1>{achievements.title}</h1>
               <p>{achievements.description}</p>
             </div>
