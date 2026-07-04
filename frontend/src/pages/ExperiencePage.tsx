@@ -1,6 +1,5 @@
 import { getExperience } from "../api/experience";
 import { Loader } from "../components/common/Loader";
-import { SectionTitle } from "../components/common/SectionTitle";
 import { ExperienceTimeline } from "../components/experience/Timeline";
 import { useContentValue } from "../hooks/useContentValue";
 import { useFetch } from "../hooks/useFetch";
@@ -16,7 +15,9 @@ export function ExperiencePage() {
   return (
     <div className="page">
       <section className="section">
-        <SectionTitle eyebrow={copy.pages.experience.eyebrow} title={copy.pages.experience.title} />
+        <div className="section-heading section-heading--experience-page">
+          <h2 className="section-heading__inline-copy">{copy.pages.experience.title}</h2>
+        </div>
         <ExperienceTimeline experience={data} />
       </section>
     </div>

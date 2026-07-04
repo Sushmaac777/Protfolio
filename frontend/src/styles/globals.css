@@ -1892,6 +1892,30 @@ select {
   margin-bottom: 1.75rem;
 }
 
+.section-heading--experience-page {
+  max-width: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: nowrap;
+}
+
+.section-heading--experience-page .eyebrow {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.section-heading--experience-page .section-heading__inline-copy {
+  margin: 0;
+  color: #000;
+  font-family: "Manrope", sans-serif;
+  font-size: calc(0.8rem + 15px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
 .section-heading h2,
 .cta-panel h2 {
   font-size: clamp(2.2rem, 5vw, 3.4rem);
@@ -1909,6 +1933,18 @@ select {
 
 .grid--three {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+@media (max-width: 900px) {
+  .section-heading--experience-page {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.25rem 0.75rem;
+  }
+
+  .section-heading__inline-copy {
+    white-space: normal;
+  }
 }
 
 .note,
