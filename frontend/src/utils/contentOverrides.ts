@@ -1,3 +1,4 @@
+import { aboutPage } from "../data/aboutPage";
 import { achievements } from "../data/achievements";
 import { mockBlogs, mockExperience, mockProfile, mockProjects, mockPublications, mockSkills } from "../data/mockPortfolio";
 import { siteCopy } from "../data/siteCopy";
@@ -9,6 +10,7 @@ const listeners = new Set<() => void>();
 
 const defaultContent: PortfolioContentMap = {
   profile: mockProfile,
+  aboutPage,
   projects: mockProjects,
   publications: mockPublications,
   experience: mockExperience,
@@ -117,7 +119,7 @@ export function getContentValue<K extends PortfolioContentKey>(key: K): Portfoli
     return getDefaultContent(key);
   }
 
-  if (key === "siteCopy") {
+  if (key === "siteCopy" || key === "aboutPage") {
     return mergeWithDefaults(getDefaultContent(key), override) as PortfolioContentMap[K];
   }
 

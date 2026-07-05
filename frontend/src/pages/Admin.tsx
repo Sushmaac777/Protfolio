@@ -32,6 +32,11 @@ const sectionConfig: Array<{
     description: "Hero text, title, availability, highlights, and social links.",
   },
   {
+    key: "aboutPage",
+    label: "About Page",
+    description: "About-page intro, education journey, and technical plus non-technical skills.",
+  },
+  {
     key: "projects",
     label: "Projects",
     description: "Project cards and detail-page content, including featured flags.",
@@ -75,6 +80,7 @@ function formatDraft<K extends PortfolioContentKey>(value: PortfolioContentMap[K
 function createDefaultDrafts(): Record<PortfolioContentKey, string> {
   return {
     profile: formatDraft(getDefaultContent("profile")),
+    aboutPage: formatDraft(getDefaultContent("aboutPage")),
     projects: formatDraft(getDefaultContent("projects")),
     experience: formatDraft(getDefaultContent("experience")),
     skills: formatDraft(getDefaultContent("skills")),
@@ -158,6 +164,8 @@ function getSectionHint(key: PortfolioContentKey) {
       return "Site Copy controls the header subtitle, page headings, CTA labels, and footer text across the site.";
     case "achievements":
       return "Achievements now has its own dedicated editor section, so Site Copy changes will not overwrite this page anymore.";
+    case "aboutPage":
+      return "About Page now has its own editor section for the intro story, education journey, and strengths, so it can evolve without depending on generic site copy.";
     default:
       return "Save applies locally in this browser, then the matching public page should reflect the new content.";
   }
@@ -199,6 +207,12 @@ export function Admin({ dashboard = false }: { dashboard?: boolean }) {
 
         setDrafts({
           profile: formatDraft(profile),
+          aboutPage: formatDraft(
+            normalizeSectionForSave(
+              "aboutPage",
+              readContentOverride("aboutPage") ?? getContentValue("aboutPage"),
+            ),
+          ),
           projects: formatDraft(projects),
           experience: formatDraft(experience),
           skills: formatDraft(skills),

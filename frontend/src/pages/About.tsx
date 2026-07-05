@@ -1,22 +1,22 @@
-import { getProfile } from "../api/profile";
-import { Loader } from "../components/common/Loader";
-import { AboutIntro } from "../components/about/AboutIntro";
-import { Education } from "../components/about/Education";
-import { Interests } from "../components/about/Interests";
-import { useFetch } from "../hooks/useFetch";
+import { AboutCapabilities } from "../components/about/AboutCapabilities";
+import { AboutHero } from "../components/about/AboutHero";
+import { AboutJourney } from "../components/about/AboutJourney";
+import { AboutLessons } from "../components/about/AboutLessons";
+import { AboutNext } from "../components/about/AboutNext";
+import { AboutQuote } from "../components/about/AboutQuote";
 
 export function About() {
-  const profile = useFetch(getProfile);
-
-  if (!profile.data) {
-    return <Loader label="Loading story" />;
-  }
-
   return (
-    <div className="page">
-      <AboutIntro profile={profile.data} />
-      <Education />
-      <Interests />
+    <div className="page about-page">
+      <AboutHero />
+
+      <section className="section about-page__body">
+        <AboutJourney />
+        <AboutLessons />
+        <AboutCapabilities />
+        <AboutNext />
+        <AboutQuote />
+      </section>
     </div>
   );
 }

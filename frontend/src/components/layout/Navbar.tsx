@@ -44,10 +44,25 @@ function MoonIcon() {
   );
 }
 
+function SunIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" height="18" viewBox="0 0 24 24" width="18">
+      <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6M18.7 18.7l-1.6-1.6M6.9 6.9L5.3 5.3"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
 export function Navbar() {
   const copy = useContentValue("siteCopy");
   const { data: profile } = useFetch(getProfile);
-  const { toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const brandName = profile?.name ?? "Sushma Acharya";
   const brandMeta = copy.navigation.brandMeta.trim() || "Engineer • Researcher • QA";
 
@@ -80,8 +95,13 @@ export function Navbar() {
             <PaperPlaneIcon />
             <span>Connect</span>
           </Link>
-          <button aria-label="Toggle theme" className="nav-theme" onClick={toggleTheme} type="button">
-            <MoonIcon />
+          <button
+            aria-label={theme === "night" ? "Switch to light theme" : "Switch to dark theme"}
+            className="nav-theme"
+            onClick={toggleTheme}
+            type="button"
+          >
+            {theme === "night" ? <SunIcon /> : <MoonIcon />}
           </button>
         </div>
       </div>

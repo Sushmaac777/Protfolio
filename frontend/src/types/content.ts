@@ -5,6 +5,68 @@ import type { Project } from "./project";
 import type { Publication } from "./publication";
 import type { SkillCategory } from "./skill";
 
+export type AboutPageContent = {
+  introTitle: string;
+  introDescription: string;
+  currentDirectionLabel: string;
+  currentDirectionText: string;
+  introHighlights: Array<{
+    label: string;
+    value: string;
+    detail: string;
+  }>;
+  educationEyebrow: string;
+  educationTitle: string;
+  educationDescription: string;
+  educationJourney: Array<{
+    year: string;
+    stage: string;
+    institution: string;
+    detail: string;
+    outcome: string;
+    highlights: string[];
+    icon: string;
+    tone: string;
+  }>;
+  skillsEyebrow: string;
+  skillsTitle: string;
+  skillsDescription: string;
+  skillGroups: Array<{
+    title: string;
+    description: string;
+    icon: string;
+    tone: string;
+    items: string[];
+  }>;
+  heroEyebrow: string;
+  heroTitleLead: string;
+  heroTitleAccent: string;
+  heroParagraphs: string[];
+  heroPathway: Array<{
+    title: string;
+    subtitle: string;
+    icon: string;
+    tone: string;
+  }>;
+  lessonTitle: string;
+  lessonItems: Array<{
+    eyebrow: string;
+    title: string;
+    description: string;
+    icon: string;
+    tone: string;
+  }>;
+  nextTitle: string;
+  nextSteps: Array<{
+    title: string;
+    description: string;
+    icon: string;
+    tone: string;
+  }>;
+  quoteLead: string;
+  quoteAccent: string;
+};
+
 export type AchievementsContent = {
   eyebrow: string;
   title: string;
@@ -139,6 +201,7 @@ export type SiteCopy = {
 
 export type PortfolioContentMap = {
   profile: Profile;
+  aboutPage: AboutPageContent;
   projects: Project[];
   publications: Publication[];
   experience: Experience[];

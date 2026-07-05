@@ -1,4 +1,4 @@
-import { createContext, type ReactNode, useEffect } from "react";
+import { createContext, type ReactNode, useLayoutEffect, useState } from "react";
 
 export type Theme = "sunrise" | "night";
 
@@ -9,20 +9,30 @@ type ThemeContextValue = {
 
 export const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  useEffect(() => {
-    document.documentElement.dataset.theme = "sunrise";
+const STORAGE_KEY = "portfolio-theme";
 
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("portfolio-theme", "sunrise");
-    }
-  }, []);
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") {
+    return "sunrise";
+  }
+
+  const storedTheme = window.localStorage.getItem(STORAGE_KEY);
+  return storedTheme === "night" ? "night" : "sunrise";
+}
+
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+
+  useLayoutEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem(STORAGE_KEY, theme);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider
       value={{
-        theme: "sunrise",
-        toggleTheme: () => undefined,
+        theme,
+        toggleTheme: () => setTheme((current) => (current === "sunrise" ? "night" : "sunrise")),
       }}
     >
       {children}

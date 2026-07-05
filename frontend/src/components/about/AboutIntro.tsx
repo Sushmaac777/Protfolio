@@ -1,40 +1,35 @@
 import type { Profile } from "../../types/profile";
 import { useContentValue } from "../../hooks/useContentValue";
 import { Button } from "../common/Button";
-import { SectionTitle } from "../common/SectionTitle";
 
 export function AboutIntro({ profile }: { profile: Profile }) {
-  const copy = useContentValue("siteCopy");
+  const about = useContentValue("aboutPage");
 
   return (
-    <section className="section about-preview">
-      <SectionTitle
-        title={copy.home.aboutTitle}
-        description={profile.summary}
-      />
-      <div className="about-preview__layout">
-        <div className="about-preview__note">
-          <p className="eyebrow">{copy.home.aboutNoteLabel}</p>
-          <p>{profile.availability}</p>
+    <section className="section about-story">
+      <div className="about-story__grid">
+        <div className="about-story__copy">
+          <h1>{about.introTitle}</h1>
+          <p className="about-story__lead">{about.introDescription}</p>
+          <p className="about-story__support">{profile.summary}</p>
+
+          <div className="about-story__direction">
+            <p className="eyebrow">{about.currentDirectionLabel}</p>
+            <p>{about.currentDirectionText}</p>
+          </div>
+
+          <div className="button-row about-preview__actions">
+            <Button to="/journey" variant="outline">
+              View Journey
+            </Button>
+            <Button to="/research" variant="outline">
+              Research
+            </Button>
+            <Button to="/achievements" variant="outline">
+              Achievements
+            </Button>
+          </div>
         </div>
-        <div className="copy-grid about-preview__grid">
-          {profile.highlights.map((highlight) => (
-            <div className="note" key={highlight}>
-              <p>{highlight}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="button-row about-preview__actions">
-        <Button to="/journey" variant="outline">
-          View Journey
-        </Button>
-        <Button to="/research" variant="outline">
-          Research
-        </Button>
-        <Button to="/achievements" variant="outline">
-          Achievements
-        </Button>
       </div>
     </section>
   );
