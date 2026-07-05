@@ -9,7 +9,6 @@ export function AboutIntro({ profile }: { profile: Profile }) {
   return (
     <section className="section about-preview">
       <SectionTitle
-        eyebrow={copy.home.aboutEyebrow}
         title={copy.home.aboutTitle}
         description={profile.summary}
       />

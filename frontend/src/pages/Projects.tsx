@@ -2,7 +2,6 @@ import { useDeferredValue, useMemo, useState } from "react";
 
 import { getProjects } from "../api/projects";
 import { Loader } from "../components/common/Loader";
-import { SectionTitle } from "../components/common/SectionTitle";
 import { Filter } from "../components/projects/Filter";
 import { ProjectGrid } from "../components/projects/ProjectGrid";
 import { useContentValue } from "../hooks/useContentValue";
@@ -40,11 +39,10 @@ export function Projects() {
   return (
     <div className="page">
       <section className="section">
-        <SectionTitle
-          eyebrow={copy.pages.projects.eyebrow}
-          title={copy.pages.projects.title}
-          description={copy.pages.projects.description}
-        />
+        <div className="section-heading section-heading--projects-page">
+          <h2 className="section-heading__inline-copy">{copy.pages.projects.title}</h2>
+          <p>{copy.pages.projects.description}</p>
+        </div>
         <Filter
           activeTag={activeTag}
           onQueryChange={setQuery}

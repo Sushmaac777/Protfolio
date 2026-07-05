@@ -1916,6 +1916,26 @@ select {
   white-space: nowrap;
 }
 
+.section-heading--projects-page {
+  max-width: none;
+}
+
+.section-heading--projects-page .section-heading__inline-copy,
+.section-heading--blog-page .section-heading__inline-copy {
+  margin: 0;
+  color: #000;
+  font-family: "Manrope", sans-serif;
+  font-size: calc(0.8rem + 15px);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.section-heading--blog-page {
+  max-width: none;
+}
+
 .section-heading h2,
 .cta-panel h2 {
   font-size: clamp(2.2rem, 5vw, 3.4rem);
