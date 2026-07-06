@@ -1,6 +1,12 @@
 import { type FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import {
+  getAdminContent,
+  resetAdminContentSection,
+  resetAllAdminContent,
+  updateAdminContentSection,
+} from "../api/content";
 import { getBlogs } from "../api/blogs";
 import { getExperience } from "../api/experience";
 import { getProfile } from "../api/profile";
@@ -11,15 +17,8 @@ import { Loader } from "../components/common/Loader";
 import { Button } from "../components/common/Button";
 import { SectionTitle } from "../components/common/SectionTitle";
 import { useAuth } from "../context/AuthContext";
+import { useContent } from "../context/ContentContext";
 import type { PortfolioContentKey, PortfolioContentMap } from "../types/content";
-import {
-  clearContentOverrides,
-  getContentValue,
-  getDefaultContent,
-  readContentOverride,
-  removeContentOverride,
-  writeContentOverride,
-} from "../utils/contentOverrides";
 
 const sectionConfig: Array<{
   key: PortfolioContentKey;
@@ -77,83 +76,32 @@ function formatDraft<K extends PortfolioContentKey>(value: PortfolioContentMap[K
   return JSON.stringify(value, null, 2);
 }
 
-function createDefaultDrafts(): Record<PortfolioContentKey, string> {
+function createEmptyDrafts(): Record<PortfolioContentKey, string> {
   return {
-    profile: formatDraft(getDefaultContent("profile")),
-    aboutPage: formatDraft(getDefaultContent("aboutPage")),
-    projects: formatDraft(getDefaultContent("projects")),
-    experience: formatDraft(getDefaultContent("experience")),
-    skills: formatDraft(getDefaultContent("skills")),
-    publications: formatDraft(getDefaultContent("publications")),
-    blogs: formatDraft(getDefaultContent("blogs")),
-    achievements: formatDraft(getDefaultContent("achievements")),
-    siteCopy: formatDraft(getDefaultContent("siteCopy")),
+    profile: "",
+    aboutPage: "",
+    projects: "",
+    experience: "",
+    skills: "",
+    publications: "",
+    blogs: "",
+    achievements: "",
+    siteCopy: "",
   };
 }
 
-function isPlainObject(value: unknown): value is Record<string, unknown> {
-  return typeof value === "object" && value !== null && !Array.isArray(value);
-}
-
-function normalizeRemovedFields<T>(defaults: T, value: unknown, preserveUnknown = true): T {
-  if (Array.isArray(defaults)) {
-    if (!Array.isArray(value)) {
-      return [] as T;
-    }
-
-    const itemShape = defaults[0];
-
-    if (itemShape === undefined) {
-      return value as T;
-    }
-
-    return value.map((item) => normalizeRemovedFields(itemShape, item, preserveUnknown)) as T;
-  }
-
-  if (isPlainObject(defaults)) {
-    const source = isPlainObject(value) ? value : {};
-    const result: Record<string, unknown> = {};
-
-    Object.entries(defaults).forEach(([key, defaultValue]) => {
-      result[key] = normalizeRemovedFields(defaultValue, source[key], preserveUnknown);
-    });
-
-    if (preserveUnknown) {
-      Object.entries(source).forEach(([key, sourceValue]) => {
-        if (!(key in result)) {
-          result[key] = sourceValue;
-        }
-      });
-    }
-
-    return result as T;
-  }
-
-  if (typeof defaults === "string") {
-    return (typeof value === "string" ? value : "") as T;
-  }
-
-  if (typeof defaults === "number") {
-    return (typeof value === "number" ? value : 0) as T;
-  }
-
-  if (typeof defaults === "boolean") {
-    return (typeof value === "boolean" ? value : false) as T;
-  }
-
-  return (value === undefined ? defaults : value) as T;
-}
-
-function normalizeSectionForSave<K extends PortfolioContentKey>(key: K, value: PortfolioContentMap[K]): PortfolioContentMap[K] {
-  if (key === "siteCopy") {
-    return normalizeRemovedFields(getDefaultContent("siteCopy"), value, false) as PortfolioContentMap[K];
-  }
-
-  if (key === "achievements") {
-    return normalizeRemovedFields(getDefaultContent("achievements"), value, false) as PortfolioContentMap[K];
-  }
-
-  return value;
+function createDraftsFromContent(content: PortfolioContentMap): Record<PortfolioContentKey, string> {
+  return {
+    profile: formatDraft(content.profile),
+    aboutPage: formatDraft(content.aboutPage),
+    projects: formatDraft(content.projects),
+    experience: formatDraft(content.experience),
+    skills: formatDraft(content.skills),
+    publications: formatDraft(content.publications),
+    blogs: formatDraft(content.blogs),
+    achievements: formatDraft(content.achievements),
+    siteCopy: formatDraft(content.siteCopy),
+  };
 }
 
 function getSectionHint(key: PortfolioContentKey) {
@@ -167,17 +115,18 @@ function getSectionHint(key: PortfolioContentKey) {
     case "aboutPage":
       return "About Page now has its own editor section for the intro story, education journey, and strengths, so it can evolve without depending on generic site copy.";
     default:
-      return "Save applies locally in this browser, then the matching public page should reflect the new content.";
+      return "Save writes to the backend content store, then the matching public page should reflect the new content.";
   }
 }
 
 export function Admin({ dashboard = false }: { dashboard?: boolean }) {
   const { login, logout, token, loading } = useAuth();
+  const { refreshContent } = useContent();
   const [username, setUsername] = useState("admin");
   const [password, setPassword] = useState("portfolio123");
   const [error, setError] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<PortfolioContentKey>("profile");
-  const [drafts, setDrafts] = useState<Record<PortfolioContentKey, string>>(createDefaultDrafts);
+  const [drafts, setDrafts] = useState<Record<PortfolioContentKey, string>>(createEmptyDrafts);
   const [loadingContent, setLoadingContent] = useState(false);
   const [editorMessage, setEditorMessage] = useState<string | null>(null);
 
@@ -186,54 +135,23 @@ export function Admin({ dashboard = false }: { dashboard?: boolean }) {
       return;
     }
 
+    const authToken = token;
     let active = true;
 
     async function loadContent() {
       setLoadingContent(true);
 
       try {
-        const [profile, projects, experience, skills, publications, blogs] = await Promise.all([
-          getProfile(),
-          getProjects(),
-          getExperience(),
-          getSkills(),
-          getPublications(),
-          getBlogs(),
-        ]);
+        const content = await getAdminContent(authToken);
 
         if (!active) {
           return;
         }
 
-        setDrafts({
-          profile: formatDraft(profile),
-          aboutPage: formatDraft(
-            normalizeSectionForSave(
-              "aboutPage",
-              readContentOverride("aboutPage") ?? getContentValue("aboutPage"),
-            ),
-          ),
-          projects: formatDraft(projects),
-          experience: formatDraft(experience),
-          skills: formatDraft(skills),
-          publications: formatDraft(publications),
-          blogs: formatDraft(blogs),
-          achievements: formatDraft(
-            normalizeSectionForSave(
-              "achievements",
-              readContentOverride("achievements") ?? getContentValue("achievements"),
-            ),
-          ),
-          siteCopy: formatDraft(
-            normalizeSectionForSave(
-              "siteCopy",
-              readContentOverride("siteCopy") ?? getContentValue("siteCopy"),
-            ),
-          ),
-        });
+        setDrafts(createDraftsFromContent(content));
       } catch {
         if (active) {
-          setEditorMessage("Could not load admin content. The default portfolio content is shown instead.");
+          setEditorMessage("Could not load admin content from the backend.");
         }
       } finally {
         if (active) {
@@ -264,21 +182,19 @@ export function Admin({ dashboard = false }: { dashboard?: boolean }) {
     setDrafts((current) => ({ ...current, [key]: value }));
   }
 
-  function saveSection() {
+  async function saveSection() {
+    if (!token) {
+      setEditorMessage("Admin authentication is required before saving.");
+      return;
+    }
+
     try {
       const parsed = JSON.parse(drafts[activeSection]) as PortfolioContentMap[typeof activeSection];
-      const normalized = normalizeSectionForSave(activeSection, parsed);
-      writeContentOverride(activeSection, normalized);
-      const savedValue = readContentOverride(activeSection);
-
-      if (JSON.stringify(savedValue) !== JSON.stringify(normalized)) {
-        setEditorMessage("The section could not be confirmed after saving. Try again and check whether browser storage is blocked.");
-        return;
-      }
-
-      updateDraft(activeSection, formatDraft(normalized));
+      const savedValue = await updateAdminContentSection(token, activeSection, parsed);
+      updateDraft(activeSection, formatDraft(savedValue));
+      await refreshContent();
       setEditorMessage(
-        `${sectionConfig.find((section) => section.key === activeSection)?.label} saved locally in this browser. ${getSectionHint(activeSection)}`,
+        `${sectionConfig.find((section) => section.key === activeSection)?.label} saved to the backend content store. ${getSectionHint(activeSection)}`,
       );
     } catch (error) {
       if (error instanceof SyntaxError) {
@@ -286,20 +202,40 @@ export function Admin({ dashboard = false }: { dashboard?: boolean }) {
         return;
       }
 
-      setEditorMessage("The section could not be saved to browser storage. Check whether your browser is blocking local storage and try again.");
+      setEditorMessage("The section could not be saved to the backend. Check the API response and try again.");
     }
   }
 
-  function resetSection() {
-    removeContentOverride(activeSection);
-    updateDraft(activeSection, formatDraft(getDefaultContent(activeSection)));
-    setEditorMessage(`${sectionConfig.find((section) => section.key === activeSection)?.label} reset to the default portfolio content.`);
+  async function resetSection() {
+    if (!token) {
+      setEditorMessage("Admin authentication is required before resetting.");
+      return;
+    }
+
+    try {
+      const resetValue = await resetAdminContentSection(token, activeSection);
+      updateDraft(activeSection, formatDraft(resetValue));
+      await refreshContent();
+      setEditorMessage(`${sectionConfig.find((section) => section.key === activeSection)?.label} reset to the backend default content.`);
+    } catch {
+      setEditorMessage("The section could not be reset on the backend. Try again.");
+    }
   }
 
-  function resetAllSections() {
-    clearContentOverrides();
-    setDrafts(createDefaultDrafts());
-    setEditorMessage("All admin overrides were cleared. The site is back to the default portfolio content.");
+  async function resetAllSections() {
+    if (!token) {
+      setEditorMessage("Admin authentication is required before resetting.");
+      return;
+    }
+
+    try {
+      const resetContent = await resetAllAdminContent(token);
+      setDrafts(createDraftsFromContent(resetContent));
+      await refreshContent();
+      setEditorMessage("All backend content sections were reset to their default values.");
+    } catch {
+      setEditorMessage("The backend content store could not be reset. Try again.");
+    }
   }
 
   if (dashboard && token) {
@@ -311,7 +247,7 @@ export function Admin({ dashboard = false }: { dashboard?: boolean }) {
           <SectionTitle
             eyebrow="Admin"
             title="Portfolio content editor"
-            description="This dashboard lets you edit the live portfolio copy in this browser. Changes are saved locally for now, so this works like a practical CMS prototype rather than a shared production admin."
+            description="This dashboard edits the live portfolio content through the backend API, so changes apply from a single backend source of truth while the server is running."
           />
           <div className="admin-toolbar">
             <div className="admin-toolbar__actions">
@@ -326,7 +262,7 @@ export function Admin({ dashboard = false }: { dashboard?: boolean }) {
               </Button>
             </div>
             <p className="admin-note">
-              Edit the JSON for each section, save it, then revisit the public pages to confirm the update.
+              Edit the JSON for each section, save it to the backend, then revisit the public pages to confirm the update.
             </p>
           </div>
         </section>
@@ -396,7 +332,7 @@ export function Admin({ dashboard = false }: { dashboard?: boolean }) {
           <SectionTitle
             eyebrow="Admin"
             title="Content editor access"
-            description="Sign in with the admin credentials to open the local portfolio content editor."
+            description="Sign in with the admin credentials to open the backend-driven portfolio content editor."
           />
           <p>Default credentials: `admin` / `portfolio123`</p>
           {token ? (

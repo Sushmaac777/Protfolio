@@ -2,6 +2,7 @@ import { getExperience } from "../api/experience";
 import { getProjects } from "../api/projects";
 import { getProfile } from "../api/profile";
 import { getPublications } from "../api/publications";
+import { EmptyState } from "../components/common/EmptyState";
 import { Loader } from "../components/common/Loader";
 import { Hero } from "../components/home/Hero";
 import { QuickHighlights } from "../components/home/QuickHighlights";
@@ -14,8 +15,19 @@ export function Home() {
   const publications = useFetch(getPublications);
   const experience = useFetch(getExperience);
 
-  if (!profile.data || !projects.data || !publications.data || !experience.data) {
+  if (profile.loading || projects.loading || publications.loading || experience.loading) {
     return <Loader label="Loading portfolio" />;
+  }
+
+  if (profile.error || projects.error || publications.error || experience.error || !profile.data || !projects.data || !publications.data || !experience.data) {
+    return (
+      <div className="page">
+        <EmptyState
+          title="Could not load portfolio"
+          message="The homepage content could not be loaded from the backend right now."
+        />
+      </div>
+    );
   }
 
   return (

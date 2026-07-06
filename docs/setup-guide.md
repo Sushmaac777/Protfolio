@@ -121,16 +121,16 @@ You can change them in `backend/.env`.
 
 ## Admin Content Editor
 
-The portfolio includes a local admin editor:
+The portfolio includes a backend-driven admin editor:
 
 - Visit `http://localhost:5173/admin` to sign in
 - Open `http://localhost:5173/admin/dashboard` after signing in
 
 Important behavior:
 
-- Admin content edits are stored locally in the browser, not in the backend database
+- Admin content edits are sent to the backend content store
 - The `Site Copy` section controls shared labels plus the footer title and copyright line
-- Clearing browser overrides or using the dashboard reset actions returns the site to the default bundled content
+- Reset actions restore the backend defaults for one section or the whole content store
 
 ## Common Commands
 

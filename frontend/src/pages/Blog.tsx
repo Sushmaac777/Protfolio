@@ -1,6 +1,7 @@
 import { useDeferredValue, useMemo, useState } from "react";
 
 import { getBlogs } from "../api/blogs";
+import { EmptyState } from "../components/common/EmptyState";
 import { Loader } from "../components/common/Loader";
 import { BlogCard } from "../components/blogs/BlogCard";
 import { Filter } from "../components/projects/Filter";
@@ -10,7 +11,7 @@ import { useFetch } from "../hooks/useFetch";
 import { uniqueTags } from "../utils/helpers";
 
 export function Blog() {
-  const { data, loading } = useFetch(getBlogs);
+  const { data, loading, error } = useFetch(getBlogs);
   const copy = useContentValue("siteCopy");
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState("");
@@ -32,8 +33,16 @@ export function Blog() {
     });
   }, [activeTag, data, deferredQuery]);
 
-  if (loading || !data) {
+  if (loading) {
     return <Loader label="Loading articles" />;
+  }
+
+  if (error || !data) {
+    return (
+      <div className="page">
+        <EmptyState title="Could not load articles" message="The blog content could not be loaded from the backend." />
+      </div>
+    );
   }
 
   return (

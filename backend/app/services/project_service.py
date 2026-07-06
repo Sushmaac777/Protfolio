@@ -1,21 +1,19 @@
 from typing import Optional
 
-from app.repositories.project_repository import ProjectRepository
 from app.schemas.project import ProjectRead
-
-repository = ProjectRepository()
+from app.repositories.content_repository import content_repository
 
 
 class ProjectService:
     def list_projects(self, featured: Optional[bool] = None) -> list[ProjectRead]:
-        projects = repository.list()
+        projects = [ProjectRead.model_validate(project) for project in content_repository.get("projects")]
         if featured is not None:
             projects = [project for project in projects if project.featured == featured]
-        return [ProjectRead.model_validate(project) for project in projects]
+        return projects
 
     def get_project(self, slug: str) -> Optional[ProjectRead]:
-        project = repository.get_by_slug(slug)
-        return ProjectRead.model_validate(project) if project else None
+        projects = [ProjectRead.model_validate(project) for project in content_repository.get("projects")]
+        return next((project for project in projects if project.slug == slug), None)
 
 
 project_service = ProjectService()

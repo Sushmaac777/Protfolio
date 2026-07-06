@@ -1,6 +1,7 @@
 import { useDeferredValue, useMemo, useState } from "react";
 
 import { getProjects } from "../api/projects";
+import { EmptyState } from "../components/common/EmptyState";
 import { Loader } from "../components/common/Loader";
 import { Filter } from "../components/projects/Filter";
 import { ProjectGrid } from "../components/projects/ProjectGrid";
@@ -10,7 +11,7 @@ import { useFetch } from "../hooks/useFetch";
 import { uniqueTags } from "../utils/helpers";
 
 export function Projects() {
-  const { data: projects, loading } = useFetch(getProjects);
+  const { data: projects, loading, error } = useFetch(getProjects);
   const copy = useContentValue("siteCopy");
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState("");
@@ -32,8 +33,16 @@ export function Projects() {
     });
   }, [activeTag, deferredQuery, projects]);
 
-  if (loading || !projects) {
+  if (loading) {
     return <Loader label="Loading projects" />;
+  }
+
+  if (error || !projects) {
+    return (
+      <div className="page">
+        <EmptyState title="Could not load projects" message="The projects list could not be loaded from the backend." />
+      </div>
+    );
   }
 
   return (

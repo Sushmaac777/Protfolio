@@ -8,10 +8,18 @@ import { useFetch } from "../hooks/useFetch";
 
 export function ProjectDetailsPage() {
   const { slug = "" } = useParams();
-  const { data: project, loading } = useFetch(() => getProjectBySlug(slug), [slug]);
+  const { data: project, loading, error } = useFetch(() => getProjectBySlug(slug), [slug]);
 
   if (loading) {
     return <Loader label="Loading project" />;
+  }
+
+  if (error) {
+    return (
+      <div className="page">
+        <EmptyState title="Could not load project" message="The project details could not be loaded from the backend." />
+      </div>
+    );
   }
 
   if (!project) {
@@ -28,4 +36,3 @@ export function ProjectDetailsPage() {
     </div>
   );
 }
-

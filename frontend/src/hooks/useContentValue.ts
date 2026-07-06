@@ -1,13 +1,12 @@
-import { useSyncExternalStore } from "react";
+import { useSharedContentValue } from "../context/ContentContext";
+import type { AchievementsContent, AboutPageContent, SiteCopy } from "../types/content";
 
-import type { PortfolioContentKey, PortfolioContentMap } from "../types/content";
-import {
-  getContentOverridesSnapshot,
-  getContentValue,
-  subscribeToContentOverrides,
-} from "../utils/contentOverrides";
+type SharedContentMap = {
+  aboutPage: AboutPageContent;
+  achievements: AchievementsContent;
+  siteCopy: SiteCopy;
+};
 
-export function useContentValue<K extends PortfolioContentKey>(key: K): PortfolioContentMap[K] {
-  useSyncExternalStore(subscribeToContentOverrides, getContentOverridesSnapshot, getContentOverridesSnapshot);
-  return getContentValue(key);
+export function useContentValue<K extends keyof SharedContentMap>(key: K): SharedContentMap[K] {
+  return useSharedContentValue(key);
 }

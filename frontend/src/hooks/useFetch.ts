@@ -1,6 +1,6 @@
-import { DependencyList, startTransition, useEffect, useState, useSyncExternalStore } from "react";
+import { DependencyList, startTransition, useEffect, useState } from "react";
 
-import { getContentOverridesSnapshot, subscribeToContentOverrides } from "../utils/contentOverrides";
+import { useContent } from "../context/ContentContext";
 
 type FetchState<T> = {
   data: T | null;
@@ -12,11 +12,7 @@ export function useFetch<T>(fetcher: () => Promise<T>, deps: DependencyList = []
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const contentSnapshot = useSyncExternalStore(
-    subscribeToContentOverrides,
-    getContentOverridesSnapshot,
-    getContentOverridesSnapshot,
-  );
+  const { contentVersion } = useContent();
 
   useEffect(() => {
     let active = true;
@@ -47,7 +43,7 @@ export function useFetch<T>(fetcher: () => Promise<T>, deps: DependencyList = []
     return () => {
       active = false;
     };
-  }, [contentSnapshot, ...deps]);
+  }, [contentVersion, ...deps]);
 
   return { data, loading, error };
 }

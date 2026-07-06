@@ -1,18 +1,15 @@
 from typing import Optional
 
-from app.repositories.blog_repository import BlogRepository
+from app.repositories.content_repository import content_repository
 from app.schemas.blog import BlogRead
-
-repository = BlogRepository()
-
 
 class BlogService:
     def list_blogs(self) -> list[BlogRead]:
-        return [BlogRead.model_validate(blog) for blog in repository.list()]
+        return [BlogRead.model_validate(blog) for blog in content_repository.get("blogs")]
 
     def get_blog(self, slug: str) -> Optional[BlogRead]:
-        blog = repository.get_by_slug(slug)
-        return BlogRead.model_validate(blog) if blog else None
+        blogs = [BlogRead.model_validate(blog) for blog in content_repository.get("blogs")]
+        return next((blog for blog in blogs if blog.slug == slug), None)
 
 
 blog_service = BlogService()

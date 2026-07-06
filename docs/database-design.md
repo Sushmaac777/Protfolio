@@ -2,8 +2,8 @@
 
 The current implementation does not use a production database yet.
 
-- Backend portfolio data is served from in-memory repositories for fast iteration.
-- Frontend admin edits are stored locally in browser storage under the `portfolio-content-overrides` key.
+- Backend portfolio data is served from an in-memory content store for fast iteration.
+- Admin edits are written back to that backend content store while the server is running.
 
 A production migration can map these resources to tables such as:
 

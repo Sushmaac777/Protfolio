@@ -3,6 +3,7 @@ import "./styles/animations.css";
 import "./styles/globals.css";
 
 import { AuthProvider } from "./context/AuthContext";
+import { ContentProvider } from "./context/ContentContext";
 import { SettingsProvider } from "./context/SettingsContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { ErrorBoundary } from "./components/common/ErrorBoundary";
@@ -14,11 +15,12 @@ export default function App() {
       <ThemeProvider>
         <SettingsProvider>
           <AuthProvider>
-            <AppRoutes />
+            <ContentProvider>
+              <AppRoutes />
+            </ContentProvider>
           </AuthProvider>
         </SettingsProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
 }
-

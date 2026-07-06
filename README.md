@@ -10,7 +10,7 @@ A full-stack portfolio starter built from the provided blueprint. The project in
 
 - Public UI routes include `/`, `/about`, `/journey`, `/projects`, `/research`, `/skills`, `/blog`, `/contact`, and `/admin`.
 - The admin login screen is at `/admin`, and the protected content editor is at `/admin/dashboard`.
-- Admin content changes are stored locally in the browser through content overrides. This behaves like a local CMS prototype, not a shared production admin.
+- The site now reads its shared copy and editable sections from the backend, so the frontend no longer owns those content blocks as a separate source of truth.
 - The footer now renders a left-aligned site title plus a centered copyright line from `siteCopy.footer`.
 
 ## New Here?
@@ -66,6 +66,11 @@ If you want the full first-time setup walkthrough, troubleshooting tips, and loc
 - `GET /api/v1/skills`
 - `GET /api/v1/blogs`
 - `GET /api/v1/blogs/{slug}`
+- `GET /api/v1/content`
 - `POST /api/v1/contact`
 - `POST /api/v1/auth/login`
 - `GET /api/v1/admin/health`
+- `GET /api/v1/admin/content`
+- `PUT /api/v1/admin/content/{section}`
+- `POST /api/v1/admin/content/{section}/reset`
+- `POST /api/v1/admin/content/reset-all`
