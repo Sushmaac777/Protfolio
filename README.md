@@ -3,7 +3,7 @@
 A full-stack portfolio starter built from the provided blueprint. The project includes:
 
 - `frontend/`: React + Vite + TypeScript portfolio UI
-- `backend/`: FastAPI portfolio API with mock content and starter tests
+- `backend/`: FastAPI portfolio API with PostgreSQL-backed content and starter tests
 - `docs/`: architecture and deployment notes
 
 ## Project Notes
@@ -11,6 +11,7 @@ A full-stack portfolio starter built from the provided blueprint. The project in
 - Public UI routes include `/`, `/about`, `/journey`, `/projects`, `/research`, `/skills`, `/blog`, `/contact`, and `/admin`.
 - The admin login screen is at `/admin`, and the protected content editor is at `/admin/dashboard`.
 - The site now reads its shared copy and editable sections from the backend, so the frontend no longer owns those content blocks as a separate source of truth.
+- The backend persists editable portfolio content in PostgreSQL, and API reads now come from that database on each request.
 - The footer now renders a left-aligned site title plus a centered copyright line from `siteCopy.footer`.
 
 ## New Here?
@@ -33,6 +34,7 @@ You can also jump directly to:
 Backend:
 
 ```bash
+docker compose up -d postgres
 cd backend
 python3 -m venv .venv
 source .venv/bin/activate
@@ -52,6 +54,8 @@ npm run dev
 
 Frontend runs on `http://localhost:5173` and backend runs on `http://localhost:8000`.
 The backend health check is available at `http://localhost:8000/health`.
+The backend expects PostgreSQL at `postgresql://postgres:postgres@localhost:5432/portfolio` unless you override `PORTFOLIO_DATABASE_URL`.
+If you are upgrading from the earlier SQLite-backed version, the first PostgreSQL startup imports missing content rows from `backend/data/portfolio.db` when that file exists.
 
 If you want the full first-time setup walkthrough, troubleshooting tips, and local admin credentials, use [docs/setup-guide.md](docs/setup-guide.md).
 

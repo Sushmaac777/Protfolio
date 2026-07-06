@@ -10,12 +10,14 @@
 
 - Run FastAPI with Uvicorn behind a reverse proxy.
 - Configure at least these environment variables:
+  - `PORTFOLIO_DATABASE_URL`
   - `PORTFOLIO_FRONTEND_ORIGIN`
   - `PORTFOLIO_ADMIN_USERNAME`
   - `PORTFOLIO_ADMIN_PASSWORD`
 - Expose `/health` for uptime checks and `/api/v1/*` for application traffic.
+- Provision PostgreSQL separately and point `PORTFOLIO_DATABASE_URL` at it before starting the API.
 
 ## Containers
 
 - The repository includes Dockerfiles for both apps.
-- For a simple local container run, use `docker-compose up --build` from the project root.
+- For a simple local container run with PostgreSQL included, use `docker-compose up --build` from the project root.

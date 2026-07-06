@@ -29,4 +29,5 @@ API base URL: `/api/v1`
 ## Notes
 
 - The frontend posts admin credentials to `/api/v1/auth/login`.
-- Public site content is served from the backend in-memory content store.
+- Public site content is served from the backend PostgreSQL database.
+- By default the backend expects `postgresql://postgres:postgres@localhost:5432/portfolio`, configurable with `PORTFOLIO_DATABASE_URL`.

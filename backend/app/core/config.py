@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     api_v1_prefix: str = "/api/v1"
     environment: str = "development"
     debug: bool = True
+    database_url: str = "postgresql://postgres:postgres@localhost:5432/portfolio"
     frontend_origin: str = "http://localhost:5173"
     admin_username: str = "admin"
     admin_password: str = "portfolio123"

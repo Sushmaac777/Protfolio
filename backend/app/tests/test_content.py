@@ -1,8 +1,12 @@
 from copy import deepcopy
+import json
+import sqlite3
 
 import pytest
 from fastapi.testclient import TestClient
 
+from app.core.config import get_settings
+from app.db.session import resolve_database_path
 from app.main import app
 
 client = TestClient(app)
@@ -58,3 +62,22 @@ def test_admin_updates_shared_content_and_reset_all_restores_defaults() -> None:
 
     assert reset_response.status_code == 200
     assert client.get("/api/v1/content").json()["siteCopy"]["footer"]["title"] == original_bundle["siteCopy"]["footer"]["title"]
+
+
+def test_direct_database_updates_flow_through_public_routes() -> None:
+    profile = client.get("/api/v1/profile").json()
+    updated_profile = {**profile, "name": "Updated Directly In SQLite"}
+    database_path = resolve_database_path(get_settings().database_url)
+
+    with sqlite3.connect(database_path) as connection:
+        connection.execute(
+            """
+            UPDATE content_sections
+            SET content = ?, updated_at = CURRENT_TIMESTAMP
+            WHERE section = ?
+            """,
+            (json.dumps(updated_profile, ensure_ascii=False), "profile"),
+        )
+        connection.commit()
+
+    assert client.get("/api/v1/profile").json()["name"] == "Updated Directly In SQLite"

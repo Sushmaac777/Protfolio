@@ -17,6 +17,7 @@ Install these first:
 
 - Node.js and `npm`
 - Python 3
+- PostgreSQL 14+ or Docker
 
 You can quickly check them with:
 
@@ -49,10 +50,10 @@ cp .env.example .env
 The frontend `.env` file points the UI to the backend API:
 
 ```bash
-VITE_API_URL=http://localhost:8000/api/v1
+VITE_API_URL=http://127.0.0.1:8000/api/v1
 ```
 
-If you skip the `.env` file, the frontend still falls back to `http://localhost:8000/api/v1`, but keeping the file makes the setup clearer for new contributors.
+If you skip the `.env` file, the frontend still falls back to `http://127.0.0.1:8000/api/v1`, but keeping the file makes the setup clearer for new contributors.
 
 ## 2. Set Up The Backend
 
@@ -71,10 +72,27 @@ The backend `.env` file contains the local development settings:
 ```bash
 PORTFOLIO_ENVIRONMENT=development
 PORTFOLIO_DEBUG=true
+PORTFOLIO_DATABASE_URL=postgresql://postgres:postgres@localhost:5432/portfolio
 PORTFOLIO_FRONTEND_ORIGIN=http://localhost:5173
 PORTFOLIO_ADMIN_USERNAME=admin
 PORTFOLIO_ADMIN_PASSWORD=portfolio123
 ```
+
+The default database URL expects a local PostgreSQL database named `portfolio`.
+
+If you want the quickest database setup, you can start PostgreSQL with Docker from the project root:
+
+```bash
+docker compose up -d postgres
+```
+
+That service uses:
+
+- Database: `portfolio`
+- Username: `postgres`
+- Password: `postgres`
+
+If you are upgrading from the earlier SQLite-backed version, the first PostgreSQL startup imports missing content sections from `backend/data/portfolio.db` when that file exists.
 
 ## 3. Start The Backend
 
@@ -89,6 +107,8 @@ The backend should be available at:
 - `http://localhost:8000`
 - `http://localhost:8000/health`
 - `http://localhost:8000/api/v1`
+
+On first start, the backend creates the `content_sections` table and seeds any missing content rows in PostgreSQL.
 
 ## 4. Start The Frontend
 
@@ -107,7 +127,7 @@ The frontend should be available at:
 Once both services are running:
 
 - Open `http://localhost:5173` in your browser
-- The frontend will call the backend at `http://localhost:8000/api/v1`
+- The frontend will call the backend at `http://127.0.0.1:8000/api/v1`
 - You can verify the backend separately at `http://localhost:8000/health`
 
 ## Admin Login
@@ -128,9 +148,10 @@ The portfolio includes a backend-driven admin editor:
 
 Important behavior:
 
-- Admin content edits are sent to the backend content store
+- Admin content edits are sent to the backend database
 - The `Site Copy` section controls shared labels plus the footer title and copyright line
 - Reset actions restore the backend defaults for one section or the whole content store
+- Direct edits to the PostgreSQL database are reflected by the API on the next request because the backend reads from the database instead of caching content in memory
 
 ## Common Commands
 
@@ -176,6 +197,7 @@ Check these first:
 
 - The backend terminal is still running
 - The backend is available at `http://localhost:8000/health`
+- PostgreSQL is running and reachable at the host in `PORTFOLIO_DATABASE_URL`
 - `frontend/.env` contains the correct `VITE_API_URL`
 
 ### CORS errors in the browser
@@ -215,6 +237,7 @@ If you just want the shortest path:
 Terminal 1:
 
 ```bash
+docker compose up -d postgres
 cd backend
 python3 -m venv .venv
 source .venv/bin/activate

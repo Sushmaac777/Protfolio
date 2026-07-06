@@ -1,8 +1,12 @@
+import json
+import sqlite3
 from copy import deepcopy
 from dataclasses import asdict, is_dataclass
+from pathlib import Path
 from threading import Lock
 from typing import Any
 
+from app.db.session import DatabaseBackend, get_session
 from app.repositories.blog_repository import BlogRepository
 from app.repositories.experience_repository import ExperienceRepository
 from app.repositories.profile_repository import ProfileRepository
@@ -23,6 +27,47 @@ CONTENT_KEYS = (
 )
 
 PUBLIC_CONTENT_KEYS = ("aboutPage", "achievements", "siteCopy")
+LEGACY_SQLITE_PATH = Path(__file__).resolve().parents[2] / "data" / "portfolio.db"
+CREATE_CONTENT_TABLE_SQL: dict[DatabaseBackend, str] = {
+    "sqlite": """
+    CREATE TABLE IF NOT EXISTS content_sections (
+        section TEXT PRIMARY KEY,
+        content TEXT NOT NULL,
+        updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    )
+    """,
+    "postgresql": """
+    CREATE TABLE IF NOT EXISTS content_sections (
+        section TEXT PRIMARY KEY,
+        content JSONB NOT NULL,
+        updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+    """,
+}
+UPSERT_CONTENT_SECTION_SQL: dict[DatabaseBackend, str] = {
+    "sqlite": """
+    INSERT INTO content_sections (section, content)
+    VALUES (?, ?)
+    ON CONFLICT(section) DO UPDATE SET
+        content = excluded.content,
+        updated_at = CURRENT_TIMESTAMP
+    """,
+    "postgresql": """
+    INSERT INTO content_sections (section, content)
+    VALUES (%s, %s::jsonb)
+    ON CONFLICT(section) DO UPDATE SET
+        content = EXCLUDED.content,
+        updated_at = NOW()
+    """,
+}
+SELECT_CONTENT_SECTION_SQL: dict[DatabaseBackend, str] = {
+    "sqlite": "SELECT content FROM content_sections WHERE section = ?",
+    "postgresql": "SELECT content::text AS content FROM content_sections WHERE section = %s",
+}
+
+
+def _statement_for(backend: DatabaseBackend, statements: dict[DatabaseBackend, str]) -> str:
+    return statements[backend]
 
 
 def _serialize(value: Any) -> Any:
@@ -629,9 +674,10 @@ def _build_default_content() -> dict[str, Any]:
 
 class ContentRepository:
     def __init__(self) -> None:
-        self._defaults = _build_default_content()
-        self._content = deepcopy(self._defaults)
         self._lock = Lock()
+
+    def initialize(self) -> None:
+        self._ensure_database()
 
     def list_keys(self) -> tuple[str, ...]:
         return CONTENT_KEYS
@@ -639,41 +685,130 @@ class ContentRepository:
     def exists(self, section: str) -> bool:
         return section in CONTENT_KEYS
 
+    def _serialize_content(self, value: Any) -> str:
+        return json.dumps(value, ensure_ascii=False)
+
+    def _load_legacy_sqlite_content(self) -> dict[str, Any]:
+        if not LEGACY_SQLITE_PATH.exists():
+            return {}
+
+        with sqlite3.connect(LEGACY_SQLITE_PATH) as connection:
+            connection.row_factory = sqlite3.Row
+            table_exists = connection.execute(
+                """
+                SELECT name
+                FROM sqlite_master
+                WHERE type = 'table' AND name = 'content_sections'
+                """
+            ).fetchone()
+
+            if table_exists is None:
+                return {}
+
+            rows = connection.execute("SELECT section, content FROM content_sections").fetchall()
+
+        return {row["section"]: json.loads(row["content"]) for row in rows}
+
+    def _build_seed_content(self, backend: DatabaseBackend) -> dict[str, Any]:
+        seed_content = _build_default_content()
+
+        if backend != "postgresql":
+            return seed_content
+
+        for section, value in self._load_legacy_sqlite_content().items():
+            if section in CONTENT_KEYS:
+                seed_content[section] = value
+
+        return seed_content
+
+    def _ensure_database(self) -> None:
+        with self._lock:
+            with get_session() as session:
+                seed_content = self._build_seed_content(session.backend)
+                session.execute(_statement_for(session.backend, CREATE_CONTENT_TABLE_SQL))
+                existing_sections = {
+                    row["section"]
+                    for row in session.fetchall("SELECT section FROM content_sections")
+                }
+                missing_sections = [
+                    (section, self._serialize_content(seed_content[section]))
+                    for section in CONTENT_KEYS
+                    if section not in existing_sections
+                ]
+
+                if missing_sections:
+                    session.executemany(_statement_for(session.backend, UPSERT_CONTENT_SECTION_SQL), missing_sections)
+
+                session.commit()
+
+    def _read_section(self, section: str) -> Any:
+        with get_session() as session:
+            row = session.fetchone(
+                _statement_for(session.backend, SELECT_CONTENT_SECTION_SQL),
+                (section,),
+            )
+
+        if row is None:
+            return self.reset(section)
+
+        return json.loads(row["content"])
+
+    def _write_section(self, section: str, value: Any) -> Any:
+        serialized_value = self._serialize_content(value)
+
+        with self._lock:
+            with get_session() as session:
+                session.execute(
+                    _statement_for(session.backend, UPSERT_CONTENT_SECTION_SQL),
+                    (section, serialized_value),
+                )
+                session.commit()
+
+        return deepcopy(value)
+
     def get(self, section: str) -> Any:
         if not self.exists(section):
             raise KeyError(section)
 
-        with self._lock:
-            return deepcopy(self._content[section])
+        self._ensure_database()
+        return self._read_section(section)
 
     def get_public_content(self) -> dict[str, Any]:
-        with self._lock:
-            return {section: deepcopy(self._content[section]) for section in PUBLIC_CONTENT_KEYS}
+        self._ensure_database()
+        return {section: self._read_section(section) for section in PUBLIC_CONTENT_KEYS}
 
     def get_all(self) -> dict[str, Any]:
-        with self._lock:
-            return deepcopy(self._content)
+        self._ensure_database()
+        return {section: self._read_section(section) for section in CONTENT_KEYS}
 
     def update(self, section: str, value: Any) -> Any:
         if not self.exists(section):
             raise KeyError(section)
 
-        with self._lock:
-            self._content[section] = deepcopy(value)
-            return deepcopy(self._content[section])
+        self._ensure_database()
+        return self._write_section(section, value)
 
     def reset(self, section: str) -> Any:
         if not self.exists(section):
             raise KeyError(section)
 
-        with self._lock:
-            self._content[section] = deepcopy(self._defaults[section])
-            return deepcopy(self._content[section])
+        self._ensure_database()
+        defaults = _build_default_content()
+        return self._write_section(section, defaults[section])
 
     def reset_all(self) -> dict[str, Any]:
+        defaults = _build_default_content()
+        self._ensure_database()
+
         with self._lock:
-            self._content = deepcopy(self._defaults)
-            return deepcopy(self._content)
+            with get_session() as session:
+                session.executemany(
+                    _statement_for(session.backend, UPSERT_CONTENT_SECTION_SQL),
+                    [(section, self._serialize_content(defaults[section])) for section in CONTENT_KEYS],
+                )
+                session.commit()
+
+        return deepcopy(defaults)
 
 
 content_repository = ContentRepository()
