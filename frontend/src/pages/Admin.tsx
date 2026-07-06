@@ -69,7 +69,7 @@ const sectionConfig: Array<{
   {
     key: "siteCopy",
     label: "Site Copy",
-    description: "Homepage headings, about-page text blocks, CTA copy, footer text, and shared page labels.",
+    description: "Homepage headings, about-page text blocks, CTA copy, footer title and copyright, and shared page labels.",
   },
 ];
 
@@ -161,7 +161,7 @@ function getSectionHint(key: PortfolioContentKey) {
     case "profile":
       return "Profile updates are split across the public site: name, title, summary, location, and availability show on Home, highlights show on About, and email shows on Contact. The small header subtitle is edited in Site Copy under navigation.brandMeta.";
     case "siteCopy":
-      return "Site Copy controls the header subtitle, page headings, CTA labels, and footer text across the site.";
+      return "Site Copy controls the header subtitle, page headings, CTA labels, and the footer title plus copyright line across the site.";
     case "achievements":
       return "Achievements now has its own dedicated editor section, so Site Copy changes will not overwrite this page anymore.";
     case "aboutPage":

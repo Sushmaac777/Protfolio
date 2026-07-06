@@ -108,6 +108,7 @@ Once both services are running:
 
 - Open `http://localhost:5173` in your browser
 - The frontend will call the backend at `http://localhost:8000/api/v1`
+- You can verify the backend separately at `http://localhost:8000/health`
 
 ## Admin Login
 
@@ -117,6 +118,19 @@ If you use the admin login flow locally, the default credentials are:
 - Password: `portfolio123`
 
 You can change them in `backend/.env`.
+
+## Admin Content Editor
+
+The portfolio includes a local admin editor:
+
+- Visit `http://localhost:5173/admin` to sign in
+- Open `http://localhost:5173/admin/dashboard` after signing in
+
+Important behavior:
+
+- Admin content edits are stored locally in the browser, not in the backend database
+- The `Site Copy` section controls shared labels plus the footer title and copyright line
+- Clearing browser overrides or using the dashboard reset actions returns the site to the default bundled content
 
 ## Common Commands
 
@@ -189,7 +203,7 @@ Example:
 Some sandboxes or managed terminals block file watching. If that happens, run:
 
 ```bash
-python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
 That starts the backend without hot reload.
