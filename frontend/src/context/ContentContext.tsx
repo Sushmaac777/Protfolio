@@ -1,6 +1,6 @@
-import { createContext, type ReactNode, startTransition, useContext, useEffect, useState } from "react";
+import { createContext, type ReactNode, startTransition, useContext, useEffect, useRef, useState } from "react";
 
-import { getSharedContent, type SharedContentMap } from "../api/content";
+import { getContentStreamUrl, getSharedContent, type SharedContentMap } from "../api/content";
 import { EmptyState } from "../components/common/EmptyState";
 import { Loader } from "../components/common/Loader";
 
@@ -18,6 +18,7 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [contentVersion, setContentVersion] = useState(0);
+  const refreshTaskRef = useRef<Promise<void> | null>(null);
 
   async function loadContent(options?: { bumpVersion?: boolean; preserveExisting?: boolean }) {
     try {
@@ -74,8 +75,36 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   }, []);
 
   async function refreshContent() {
-    await loadContent({ bumpVersion: true, preserveExisting: true });
+    if (refreshTaskRef.current) {
+      return refreshTaskRef.current;
+    }
+
+    const refreshTask = loadContent({ bumpVersion: true, preserveExisting: true }).finally(() => {
+      if (refreshTaskRef.current === refreshTask) {
+        refreshTaskRef.current = null;
+      }
+    });
+
+    refreshTaskRef.current = refreshTask;
+    return refreshTask;
   }
+
+  useEffect(() => {
+    const eventSource = new EventSource(getContentStreamUrl());
+
+    function handleContentChanged() {
+      void refreshContent().catch(() => {
+        // Keep the existing UI content and let EventSource retry automatically.
+      });
+    }
+
+    eventSource.addEventListener("content-changed", handleContentChanged);
+
+    return () => {
+      eventSource.removeEventListener("content-changed", handleContentChanged);
+      eventSource.close();
+    };
+  }, []);
 
   if (loading && !content) {
     return <Loader label="Loading site content" />;

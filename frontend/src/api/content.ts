@@ -2,6 +2,7 @@ import type { PortfolioContentKey, PortfolioContentMap } from "../types/content"
 import api from "./axios";
 
 export type SharedContentMap = Pick<PortfolioContentMap, "aboutPage" | "achievements" | "siteCopy">;
+const contentApiBaseUrl = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000/api/v1";
 
 function authHeaders(token: string) {
   return {
@@ -14,6 +15,10 @@ function authHeaders(token: string) {
 export async function getSharedContent(): Promise<SharedContentMap> {
   const response = await api.get<SharedContentMap>("/content");
   return response.data;
+}
+
+export function getContentStreamUrl(): string {
+  return `${contentApiBaseUrl}/content/stream`;
 }
 
 export async function getAdminContent(token: string): Promise<PortfolioContentMap> {

@@ -35,6 +35,15 @@ def test_public_content_bundle_is_available() -> None:
     assert payload["siteCopy"]["footer"]["title"] == "Sushma Portfolio"
 
 
+def test_public_content_stream_is_available() -> None:
+    response = client.get("/api/v1/content/stream?once=true")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/event-stream")
+    assert "event: connected" in response.text
+    assert '"status": "listening"' in response.text
+
+
 def test_admin_updates_flow_through_public_routes() -> None:
     headers = _admin_headers()
     original_profile = client.get("/api/v1/profile").json()

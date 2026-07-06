@@ -9,6 +9,7 @@ from typing import Any, Literal
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from psycopg2.extensions import connection as PsycopgConnection
 
 from app.core.config import get_settings
 
@@ -123,3 +124,26 @@ def get_session() -> Iterator[DatabaseSession]:
         yield session
     finally:
         session.connection.close()
+
+
+@contextmanager
+def get_postgres_listener(channel: str) -> Iterator[PsycopgConnection]:
+    database_url = normalize_database_url(get_settings().database_url)
+
+    if get_database_backend(database_url) != "postgresql":
+        raise ValueError("PostgreSQL listener connections require a postgresql:// database URL.")
+
+    connection = psycopg2.connect(database_url)
+    connection.set_session(autocommit=True)
+
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(f"LISTEN {channel};")
+
+        yield connection
+    finally:
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(f"UNLISTEN {channel};")
+        finally:
+            connection.close()

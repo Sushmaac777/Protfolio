@@ -4,7 +4,7 @@ from copy import deepcopy
 from dataclasses import asdict, is_dataclass
 from pathlib import Path
 from threading import Lock
-from typing import Any
+from typing import Any, Optional
 
 from app.db.session import DatabaseBackend, get_session
 from app.repositories.blog_repository import BlogRepository
@@ -27,6 +27,7 @@ CONTENT_KEYS = (
 )
 
 PUBLIC_CONTENT_KEYS = ("aboutPage", "achievements", "siteCopy")
+CONTENT_CHANGE_CHANNEL = "portfolio_content_changed"
 LEGACY_SQLITE_PATH = Path(__file__).resolve().parents[2] / "data" / "portfolio.db"
 CREATE_CONTENT_TABLE_SQL: dict[DatabaseBackend, str] = {
     "sqlite": """
@@ -44,6 +45,28 @@ CREATE_CONTENT_TABLE_SQL: dict[DatabaseBackend, str] = {
     )
     """,
 }
+CREATE_NOTIFY_FUNCTION_SQL = """
+CREATE OR REPLACE FUNCTION notify_content_section_change()
+RETURNS trigger AS $$
+BEGIN
+    PERFORM pg_notify(
+        'portfolio_content_changed',
+        json_build_object(
+            'section', COALESCE(NEW.section, OLD.section),
+            'operation', TG_OP,
+            'updatedAt', CURRENT_TIMESTAMP
+        )::text
+    );
+    RETURN COALESCE(NEW, OLD);
+END;
+$$ LANGUAGE plpgsql
+"""
+CREATE_NOTIFY_TRIGGER_SQL = """
+DROP TRIGGER IF EXISTS content_sections_notify_change ON content_sections;
+CREATE TRIGGER content_sections_notify_change
+AFTER INSERT OR UPDATE OR DELETE ON content_sections
+FOR EACH ROW EXECUTE FUNCTION notify_content_section_change();
+"""
 UPSERT_CONTENT_SECTION_SQL: dict[DatabaseBackend, str] = {
     "sqlite": """
     INSERT INTO content_sections (section, content)
@@ -63,6 +86,10 @@ UPSERT_CONTENT_SECTION_SQL: dict[DatabaseBackend, str] = {
 SELECT_CONTENT_SECTION_SQL: dict[DatabaseBackend, str] = {
     "sqlite": "SELECT content FROM content_sections WHERE section = ?",
     "postgresql": "SELECT content::text AS content FROM content_sections WHERE section = %s",
+}
+SELECT_LATEST_UPDATE_SQL: dict[DatabaseBackend, str] = {
+    "sqlite": "SELECT MAX(updated_at) AS updated_at FROM content_sections",
+    "postgresql": "SELECT MAX(updated_at)::text AS updated_at FROM content_sections",
 }
 
 
@@ -726,6 +753,11 @@ class ContentRepository:
             with get_session() as session:
                 seed_content = self._build_seed_content(session.backend)
                 session.execute(_statement_for(session.backend, CREATE_CONTENT_TABLE_SQL))
+
+                if session.backend == "postgresql":
+                    session.execute(CREATE_NOTIFY_FUNCTION_SQL)
+                    session.execute(CREATE_NOTIFY_TRIGGER_SQL)
+
                 existing_sections = {
                     row["section"]
                     for row in session.fetchall("SELECT section FROM content_sections")
@@ -780,6 +812,17 @@ class ContentRepository:
     def get_all(self) -> dict[str, Any]:
         self._ensure_database()
         return {section: self._read_section(section) for section in CONTENT_KEYS}
+
+    def get_latest_update_marker(self) -> Optional[str]:
+        self._ensure_database()
+
+        with get_session() as session:
+            row = session.fetchone(_statement_for(session.backend, SELECT_LATEST_UPDATE_SQL))
+
+        if row is None:
+            return None
+
+        return row["updated_at"]
 
     def update(self, section: str, value: Any) -> Any:
         if not self.exists(section):
