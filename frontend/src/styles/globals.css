@@ -1739,11 +1739,12 @@ select {
 
 .about-page-heading h2 {
   margin: 0;
-  color: #1b2f57;
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(2rem, 3.5vw, 2.65rem);
-  font-weight: 400;
-  line-height: 0.98;
+  color: #18335f;
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .about-page-heading p {
@@ -1860,7 +1861,8 @@ select {
 
 .about-hero-panel__visual {
   position: relative;
-  min-height: 540px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
   border-radius: 28px;
   overflow: hidden;
   background:
@@ -1873,7 +1875,7 @@ select {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center bottom;
   user-select: none;
   pointer-events: none;
@@ -1882,22 +1884,22 @@ select {
 
 .about-hero-panel__curve {
   position: absolute;
-  left: 1%;
-  top: 2.3rem;
-  width: min(44%, 314px);
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0.95;
   z-index: 2;
+  pointer-events: none;
 }
 
 .about-hero-panel__stage {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   display: grid;
-  grid-template-columns: 60px minmax(0, 1fr);
+  grid-template-columns: 54px minmax(0, 1fr);
   align-items: center;
-  gap: 0.8rem;
-  width: min(44%, 232px);
+  gap: 0.7rem;
+  width: min(34%, 208px);
   z-index: 3;
 }
 
@@ -1905,8 +1907,8 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 54px;
   border-radius: 999px;
   background:
     radial-gradient(circle at 28% 26%, rgba(255, 255, 255, 0.98), transparent 35%),
@@ -1927,25 +1929,26 @@ select {
 }
 
 .about-hero-panel__stage-icon svg {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 .about-hero-panel__stage-copy {
   display: grid;
-  gap: 0.24rem;
+  gap: 0.18rem;
 }
 
 .about-hero-panel__stage-copy strong {
   color: #1b2f57;
-  font-size: 1.02rem;
+  font-size: 0.94rem;
   font-weight: 800;
+  line-height: 1.2;
 }
 
 .about-hero-panel__stage-copy span {
   color: #45607f;
-  font-size: 0.96rem;
-  line-height: 1.5;
+  font-size: 0.84rem;
+  line-height: 1.35;
 }
 
 .about-journey-panel {
@@ -2008,15 +2011,22 @@ select {
 
 .about-journey-card {
   display: grid;
-  gap: 1rem;
+  gap: 0.85rem;
   min-height: 100%;
-  padding: 1.5rem 1.35rem 1.3rem;
+  padding: 1.4rem 1.3rem 1.25rem;
   border: 1px solid color-mix(in srgb, var(--about-tone) 16%, var(--line));
   border-radius: 26px;
   background:
     radial-gradient(circle at top right, color-mix(in srgb, var(--about-tone) 12%, transparent), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 252, 255, 0.96));
   box-shadow: 0 18px 36px color-mix(in srgb, var(--about-tone) 8%, transparent);
+}
+
+.about-journey-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
 }
 
 .about-journey-card__year,
@@ -2043,8 +2053,9 @@ select {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 76px;
-  height: 76px;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
   border-radius: 999px;
   background:
     radial-gradient(circle at 28% 26%, rgba(255, 255, 255, 0.98), transparent 34%),
@@ -2054,14 +2065,21 @@ select {
 
 .about-journey-card__copy {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.32rem;
+}
+
+.about-journey-card__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .about-journey-card__copy h3 {
   margin: 0;
   color: #1b2f57;
-  font-size: 1.55rem;
-  line-height: 1.15;
+  font-size: clamp(0.96rem, 1.1vw, 1.12rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .about-journey-card__stage,
@@ -2073,12 +2091,13 @@ select {
 .about-journey-card__stage {
   color: #1e3561;
   font-weight: 700;
+  line-height: 1.4;
 }
 
 .about-journey-card__institution,
 .about-journey-card__detail {
   color: var(--text-soft);
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .about-journey-card__badges {
@@ -2114,10 +2133,10 @@ select {
 
 .about-lesson-card {
   display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 0.85rem;
   align-items: start;
-  padding: 1.35rem;
+  padding: 1.25rem;
   border-radius: 24px;
   background:
     radial-gradient(circle at top right, color-mix(in srgb, var(--about-tone) 10%, transparent), transparent 26%),
@@ -2126,7 +2145,7 @@ select {
 
 .about-lesson-card__copy {
   display: grid;
-  gap: 0.22rem;
+  gap: 0.18rem;
 }
 
 .about-lesson-card__copy p {
@@ -2141,12 +2160,18 @@ select {
 .about-lesson-card__copy h3 {
   margin: 0;
   color: #173058;
-  font-size: 1.45rem;
+  font-size: 1.32rem;
+  line-height: 1.15;
 }
 
 .about-lesson-card__copy span {
   color: var(--text-soft);
-  line-height: 1.7;
+  line-height: 1.58;
+}
+
+.about-lesson-card__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .about-capabilities-grid {
@@ -2157,8 +2182,8 @@ select {
 
 .about-capabilities-card {
   display: grid;
-  gap: 1.25rem;
-  padding: 1.45rem;
+  gap: 1rem;
+  padding: 1.3rem 1.25rem;
   border-radius: 28px;
   background:
     radial-gradient(circle at top right, color-mix(in srgb, var(--about-tone) 10%, transparent), transparent 24%),
@@ -2167,45 +2192,51 @@ select {
 
 .about-capabilities-card__head {
   display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
-  gap: 1rem;
-  align-items: center;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
 }
 
 .about-capabilities-card__title {
   display: grid;
-  gap: 0.3rem;
+  gap: 0.22rem;
 }
 
 .about-capabilities-card__title h3 {
   margin: 0;
   color: #19325d;
-  font-size: 1.55rem;
+  font-size: 1.42rem;
+  line-height: 1.16;
 }
 
 .about-capabilities-card__title p {
   margin: 0;
   color: var(--text-soft);
-  line-height: 1.7;
+  line-height: 1.58;
 }
 
 .about-capabilities-card__chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.72rem;
+  gap: 0.62rem;
 }
 
 .about-capabilities-card__chip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.56rem 0.92rem;
+  padding: 0.52rem 0.86rem;
   border: 1px solid color-mix(in srgb, var(--about-tone) 14%, var(--line));
   border-radius: 999px;
   background: color-mix(in srgb, var(--about-tone) 7%, white);
   color: #27446f;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
+}
+
+.about-capabilities-card__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .about-next-grid {
@@ -2217,10 +2248,10 @@ select {
 .about-next-card {
   position: relative;
   display: grid;
-  grid-template-columns: 76px minmax(0, 1fr);
-  gap: 1rem;
-  align-items: center;
-  padding: 1.35rem;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+  padding: 1.25rem;
   border-radius: 24px;
   background:
     radial-gradient(circle at top right, color-mix(in srgb, var(--about-tone) 10%, transparent), transparent 26%),
@@ -2229,27 +2260,33 @@ select {
 
 .about-next-card__arrow {
   position: absolute;
-  right: 1rem;
-  top: 0.95rem;
+  right: 0.9rem;
+  top: 0.8rem;
   color: var(--about-tone);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
 }
 
 .about-next-card__copy {
   display: grid;
-  gap: 0.38rem;
+  gap: 0.28rem;
 }
 
 .about-next-card__copy h3 {
   margin: 0;
   color: #18325d;
-  font-size: 1.32rem;
+  font-size: 1.2rem;
+  line-height: 1.18;
 }
 
 .about-next-card__copy p {
   margin: 0;
   color: var(--text-soft);
-  line-height: 1.72;
+  line-height: 1.58;
+}
+
+.about-next-card__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .about-quote-banner {
@@ -2375,7 +2412,7 @@ select {
   }
 
   .about-hero-panel__visual {
-    min-height: 0;
+    aspect-ratio: 3 / 2;
   }
 }
 
@@ -2394,23 +2431,32 @@ select {
     grid-template-columns: 1fr;
   }
 
-  .about-hero-panel__visual {
-    min-height: 0;
-  }
-
   .about-hero-panel__curve {
-    width: 46%;
-    top: 1.9rem;
+    inset: 0;
   }
 
   .about-hero-panel__stage {
-    width: min(58%, 228px);
-    grid-template-columns: 56px minmax(0, 1fr);
+    width: min(54%, 190px);
+    grid-template-columns: 48px minmax(0, 1fr);
   }
 
   .about-hero-panel__stage-icon {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .about-hero-panel__stage-icon svg {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  .about-hero-panel__stage-copy strong {
+    font-size: 0.88rem;
+  }
+
+  .about-hero-panel__stage-copy span {
+    font-size: 0.78rem;
+    line-height: 1.3;
   }
 
   .about-lesson-card,
@@ -3601,19 +3647,28 @@ select:focus {
 }
 
 .site-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.5rem 0 2rem;
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.35rem 0 1.2rem;
   color: var(--text-soft);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .site-footer__title {
-  margin: 0 0 0.2rem;
+  margin: 0;
+  justify-self: start;
   color: var(--text);
-  font-family: "Instrument Serif", serif;
-  font-size: 1.3rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.site-footer__copyright {
+  margin: 0;
+  justify-self: center;
+  text-align: center;
+  font-size: 0.88rem;
 }
 
 @media (min-width: 780px) {
@@ -3858,8 +3913,7 @@ select:focus {
   }
 
   .site-footer {
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 0.4rem;
   }
 
   .admin-editor__header {

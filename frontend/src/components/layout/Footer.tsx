@@ -2,14 +2,14 @@ import { useContentValue } from "../../hooks/useContentValue";
 
 export function Footer() {
   const copy = useContentValue("siteCopy");
+  const year = new Date().getFullYear();
 
   return (
     <footer className="site-footer">
-      <div>
-        <p className="site-footer__title">{copy.footer.title}</p>
-        <p>{copy.footer.description}</p>
-      </div>
-      <p>{new Date().getFullYear()} {copy.footer.tagline}</p>
+      <p className="site-footer__title">{copy.footer.title}</p>
+      <p className="site-footer__copyright">
+        &copy; {year} {copy.footer.title}. {copy.footer.copyright}
+      </p>
     </footer>
   );
 }

@@ -194,8 +194,7 @@ export type SiteCopy = {
   };
   footer: {
     title: string;
-    description: string;
-    tagline: string;
+    copyright: string;
   };
 };
 

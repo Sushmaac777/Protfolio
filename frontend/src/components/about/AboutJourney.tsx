@@ -20,10 +20,12 @@ export function AboutJourney() {
       <div className="about-journey-panel__grid">
         {about.educationJourney.map((entry) => (
           <article className="about-journey-card" key={`${entry.year}-${entry.outcome}`} style={aboutToneStyle(entry.tone)}>
-            <span className="about-journey-card__year">{entry.year}</span>
+            <div className="about-journey-card__header">
+              <span className="about-journey-card__year">{entry.year}</span>
 
-            <div className="about-journey-card__icon">
-              <AboutIcon name={entry.icon} />
+              <div className="about-journey-card__icon">
+                <AboutIcon name={entry.icon} />
+              </div>
             </div>
 
             <div className="about-journey-card__copy">

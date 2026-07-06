@@ -192,7 +192,6 @@ export const siteCopy: SiteCopy = {
   },
   footer: {
     title: "Sushma Portfolio",
-    description: "Built with React, TypeScript, and FastAPI.",
-    tagline: "Building reliable software through testing, engineering, and research.",
+    copyright: "All rights reserved.",
   },
 };

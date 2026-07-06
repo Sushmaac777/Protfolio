@@ -3,10 +3,10 @@ import { useContentValue } from "../../hooks/useContentValue";
 import { AboutCurve, AboutIcon, aboutToneStyle } from "./AboutVisuals";
 
 const stagePositions = [
-  { left: "48.5%", top: "13.5%" },
-  { left: "28.5%", top: "33.5%" },
-  { left: "14.5%", top: "54.5%" },
-  { left: "16%", top: "75%" },
+  { left: "54%", top: "15%" },
+  { left: "31%", top: "36%" },
+  { left: "7%", top: "57%" },
+  { left: "9%", top: "78%" },
 ];
 
 export function AboutHero() {

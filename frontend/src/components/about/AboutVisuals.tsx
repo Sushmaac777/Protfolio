@@ -122,13 +122,13 @@ export function AboutIcon({ name, className }: { name: string; className?: strin
 
 export function AboutCurve({ className }: { className?: string }) {
   return (
-    <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 360 500">
+    <svg aria-hidden="true" className={className} fill="none" preserveAspectRatio="none" viewBox="0 0 100 100">
       <path
-        d="M245 18c-52 44-82 89-96 137-14 48-21 88-53 126-32 38-55 88-36 157"
+        d="M56 12C48 18 41 27 35 38C29 48 21 56 14 64C9 71 8 79 9 88"
         stroke="rgba(110, 154, 235, 0.72)"
-        strokeDasharray="5 9"
+        strokeDasharray="1.1 1.9"
         strokeLinecap="round"
-        strokeWidth="2"
+        strokeWidth="0.42"
       />
     </svg>
   );
