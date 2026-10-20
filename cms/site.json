@@ -1,0 +1,826 @@
+{
+  "settings": {
+    "brand_name": "Sushma Acharya",
+    "brand_meta": "Engineer · Researcher · QA",
+    "footer_title": "Sushma Portfolio",
+    "footer_description": "Engineering, research, and software people can trust.",
+    "copyright": "All rights reserved.",
+    "copyright_year": "2026"
+  },
+  "profile": {
+    "name": "Sushma",
+    "title": "QA Engineer | Computer Engineer | AI & Data Analytics Researcher",
+    "location": "Kathmandu, Nepal",
+    "summary": "I am a computer engineer shaping my career in quality assurance after building experience across research, data analytics, backend development, and applied AI. I enjoy understanding how systems behave, where they break, and how better testing can make software more trustworthy.",
+    "email": "hello@sushma.dev",
+    "availability": "Open to QA, test automation, research-informed software, and backend-adjacent roles.",
+    "social_links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Sushmaac777"
+      },
+      {
+        "label": "Email",
+        "url": "mailto:hello@sushma.dev"
+      }
+    ],
+    "photo": "assets/images/profile-photo.png"
+  },
+  "home": {
+    "headline": [
+      {
+        "text": "Hi, I'm ",
+        "accent": "Sushma.",
+        "suffix": ""
+      },
+      {
+        "text": "I build ",
+        "accent": "reliable software",
+        "suffix": ""
+      },
+      {
+        "text": "and explore ",
+        "accent": "AI for impact.",
+        "suffix": ""
+      }
+    ],
+    "primary_action": "Explore My Work",
+    "secondary_action": "View Résumé",
+    "availability": "Open for selected collaborations",
+    "callouts": [
+      {
+        "title": "Computer Engineer",
+        "subtitle": "B.E. (2024)"
+      },
+      {
+        "title": "Based in",
+        "subtitle": "Kathmandu, Nepal"
+      },
+      {
+        "title": "QA Engineer",
+        "subtitle": "Quality Driven"
+      },
+      {
+        "title": "Researcher",
+        "subtitle": "Published Author"
+      },
+      {
+        "title": "Developer",
+        "subtitle": "Backend Focused"
+      }
+    ],
+    "highlights": [
+      {
+        "label": "Research Publication",
+        "value": "01",
+        "note": "Published paper",
+        "link": "research/index.html"
+      },
+      {
+        "label": "Conference",
+        "value": "01",
+        "note": "International presentation",
+        "link": "research/index.html"
+      },
+      {
+        "label": "Projects",
+        "value": "06",
+        "note": "Technical projects",
+        "link": "projects/index.html"
+      },
+      {
+        "label": "Experience",
+        "value": "04",
+        "note": "Experience chapters",
+        "link": "experience/index.html"
+      },
+      {
+        "label": "Current Focus",
+        "value": "QA",
+        "note": "Test automation",
+        "link": "skills/index.html"
+      }
+    ],
+    "services_title": "What I Do",
+    "services_description": "I combine engineering, research, and quality assurance to build better, smarter, and more reliable software.",
+    "services": [
+      {
+        "title": "Quality Assurance",
+        "description": "Ensuring software quality through manual, automated, and API testing."
+      },
+      {
+        "title": "Backend Development",
+        "description": "Building scalable APIs and robust backend services with Python."
+      },
+      {
+        "title": "AI & Data Analytics",
+        "description": "Applying machine learning and analytics to solve real-world problems."
+      },
+      {
+        "title": "Research",
+        "description": "Exploring AI, social media, wellbeing, and disaster prediction."
+      }
+    ],
+    "featured_title": "Featured work across QA practice, AI and backend projects, and research.",
+    "featured_description": "A few selected projects that show how testing, analysis, and engineering come together in my work.",
+    "cta_title": "I’m currently seeking opportunities to contribute as a QA Engineer.",
+    "cta_description": "I want to keep growing in automation testing, software quality, and AI-enabled systems while bringing strong research habits and backend understanding to the team.",
+    "cta_button": "Get in Touch"
+  },
+  "about": {
+    "heroEyebrow": "About me",
+    "heroTitleLead": "Every opportunity I've earned began with learning how",
+    "heroTitleAccent": "to adapt.",
+    "heroParagraphs": [
+      "My journey into software engineering wasn't defined by shortcuts or perfect conditions. Growing up with a full Nepali-medium education meant that every new academic stage demanded extra effort, especially while transitioning into science and engineering. Rather than seeing those challenges as limitations, they became the foundation of how I approach learning today: patiently, consistently, and with curiosity.",
+      "Those experiences eventually led me toward computer engineering, academic research, backend development, and now quality assurance, where I enjoy understanding how software behaves, uncovering hidden issues, and helping build systems people can rely on."
+    ],
+    "heroPathway": [
+      {
+        "title": "Learning",
+        "subtitle": "Building strong foundations"
+      },
+      {
+        "title": "Engineering",
+        "subtitle": "Solving problems with code"
+      },
+      {
+        "title": "Research",
+        "subtitle": "Exploring, analyzing and discovering"
+      },
+      {
+        "title": "Quality",
+        "subtitle": "Making software reliable and trustworthy"
+      }
+    ],
+    "educationTitle": "My Academic Journey",
+    "educationDescription": "A story of growth, resilience, and consistent progress.",
+    "educationJourney": [
+      {
+        "year": "2015",
+        "stage": "SEE",
+        "institution": "Kudule Ma. Vi",
+        "detail": "Completed SEE with a 3.30 GPA and finished as batch topper.",
+        "outcome": "Batch Topper",
+        "highlights": [
+          "3.30 GPA"
+        ],
+        "tone": "blue"
+      },
+      {
+        "year": "2017",
+        "stage": "+2 Science",
+        "institution": "Kaski Modernized Academy",
+        "detail": "From 2.66 GPA in grade 11 to 3.29 GPA in grade 12 and graduated among top 3.",
+        "outcome": "Top 3 in Class",
+        "highlights": [
+          "2.66 in Grade 11",
+          "3.29 in Grade 12"
+        ],
+        "tone": "green"
+      },
+      {
+        "year": "2024",
+        "stage": "B.E. in Computer Engineering",
+        "institution": "Everest Engineering College",
+        "detail": "Completed with 3.64 GPA in distinction, PU scholarship, class topper, and major project award.",
+        "outcome": "Distinction & Class Topper",
+        "highlights": [
+          "3.64 GPA",
+          "PU Scholarship",
+          "Major Project Award"
+        ],
+        "tone": "violet"
+      },
+      {
+        "year": "2025 - Present",
+        "stage": "MSc Computer Science",
+        "institution": "Nepal College of Information Technology",
+        "detail": "Started master's in June 2025 with a full Pokhara University scholarship.",
+        "outcome": "Full Scholarship",
+        "highlights": [
+          "Started June 2025",
+          "PU Scholarship"
+        ],
+        "tone": "amber"
+      }
+    ],
+    "lessonTitle": "What Each Stage Taught Me",
+    "lessonItems": [
+      {
+        "eyebrow": "School",
+        "title": "Discipline",
+        "description": "Consistency and daily effort matter more than talent.",
+        "tone": "blue"
+      },
+      {
+        "eyebrow": "Engineering",
+        "title": "Systems Thinking",
+        "description": "Understanding how complex systems are designed, built, and maintained.",
+        "tone": "green"
+      },
+      {
+        "eyebrow": "Research",
+        "title": "Analytical Thinking",
+        "description": "Investigating problems with evidence, not assumptions, drives meaningful results.",
+        "tone": "violet"
+      },
+      {
+        "eyebrow": "Quality Assurance",
+        "title": "Attention to Detail",
+        "description": "Every edge case is an opportunity to improve someone's experience.",
+        "tone": "amber"
+      }
+    ],
+    "skillGroups": [
+      {
+        "title": "Technical DNA",
+        "description": "Tools and capabilities I use across QA, backend development, data handling, and research.",
+        "tone": "blue",
+        "items": [
+          "Manual Testing",
+          "API Testing",
+          "Postman",
+          "Playwright",
+          "SQL",
+          "Python",
+          "FastAPI",
+          "React",
+          "TypeScript",
+          "Research Methods",
+          "Data Analysis",
+          "Git & GitHub"
+        ]
+      },
+      {
+        "title": "Human Strengths",
+        "description": "Personal qualities strengthened by academic transition, research, teamwork, and long-term self-driven growth.",
+        "tone": "violet",
+        "items": [
+          "Analytical Thinking",
+          "Resilience",
+          "Adaptability",
+          "Documentation",
+          "Communication",
+          "Presentation",
+          "Collaboration",
+          "Leadership",
+          "Time Management",
+          "Curiosity",
+          "Consistency",
+          "Ownership"
+        ]
+      }
+    ],
+    "nextTitle": "What I'm Building Next",
+    "nextSteps": [
+      {
+        "title": "Quality Engineering",
+        "description": "Deepening my understanding of QA processes, test design, and product quality from both user and system perspectives.",
+        "tone": "blue"
+      },
+      {
+        "title": "Automation",
+        "description": "Building reliable test automation suites with Playwright and API testing to improve efficiency and software reliability.",
+        "tone": "green"
+      },
+      {
+        "title": "Research & Growth",
+        "description": "Continuing my master's journey while exploring AI, data-driven testing, and research-informed software solutions.",
+        "tone": "violet"
+      }
+    ],
+    "quoteLead": "Good software isn't just software that works.",
+    "quoteAccent": "It's software people can trust."
+  },
+  "pageHeadings": {
+    "projects": {
+      "eyebrow": "Projects",
+      "title": "Projects that show the path from research and analytics toward QA.",
+      "description": "Browse the projects below, or select a technology to narrow the collection."
+    },
+    "publications": {
+      "eyebrow": "Research",
+      "title": "Published work, presentations, and evolving research interests.",
+      "description": ""
+    },
+    "experience": {
+      "eyebrow": "Experience",
+      "title": "A journey through engineering study, research, backend work, and QA transition.",
+      "description": ""
+    },
+    "skills": {
+      "eyebrow": "Skills",
+      "title": "A toolkit shaped by engineering, research, analytics, and quality-focused learning.",
+      "description": ""
+    },
+    "blog": {
+      "eyebrow": "Blog",
+      "title": "Notes on QA learning, research thinking, AI workflows, and software quality.",
+      "description": ""
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Let’s build something thoughtful.",
+      "description": "If you have a project, role, or collaboration in mind, send a note."
+    },
+    "journey": {
+      "eyebrow": "Journey",
+      "title": "A timeline of how engineering, research, and QA began connecting.",
+      "description": "A quick way to understand how the story has evolved over time."
+    }
+  },
+  "projects": [
+    {
+      "title": "Kidney Disease Prediction System",
+      "slug": "kidney-disease-prediction-system",
+      "year": "2025",
+      "summary": "A machine learning project focused on predicting chronic kidney disease from structured clinical data.",
+      "description": "This project explored how data preprocessing, feature analysis, and model comparison can support early disease prediction. It strengthened my foundation in data cleaning, evaluation, and interpreting technical results clearly.",
+      "status": "Academic Project",
+      "stack": [
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "Jupyter",
+        "Machine Learning"
+      ],
+      "featured": true,
+      "links": [],
+      "published": true
+    },
+    {
+      "title": "Drug Prescription Analysis",
+      "slug": "drug-prescription-analysis",
+      "year": "2025",
+      "summary": "A data analytics project studying prescription patterns, trends, and decision support possibilities.",
+      "description": "This work focused on analyzing structured healthcare-related data to identify meaningful patterns, clean inconsistencies, and communicate findings through clear reporting and visual summaries.",
+      "status": "Data Analytics Study",
+      "stack": [
+        "Python",
+        "Pandas",
+        "SQL",
+        "Data Visualization",
+        "Analytics"
+      ],
+      "featured": true,
+      "links": [],
+      "published": true
+    },
+    {
+      "title": "Social Media and Well-being Research",
+      "slug": "social-media-and-wellbeing-research",
+      "year": "2024",
+      "summary": "A research project examining how social media use relates to well-being, behavior, and digital habits.",
+      "description": "This project brought together research design, literature review, data interpretation, and academic writing. It became a key part of my transition story by sharpening how I investigate evidence and communicate structured findings.",
+      "status": "Published Research",
+      "stack": [
+        "Research Methods",
+        "Survey Analysis",
+        "Statistics",
+        "Academic Writing"
+      ],
+      "featured": true,
+      "links": [],
+      "published": true
+    },
+    {
+      "title": "Prompt Search Analysis",
+      "slug": "prompt-search-analysis",
+      "year": "2026",
+      "summary": "An exploratory study of how people search, refine, and evaluate prompts in AI-assisted workflows.",
+      "description": "This ongoing research interest connects my curiosity about AI with my growing interest in quality. It looks at prompt behavior, clarity, reliability, and how structured evaluation can improve AI-supported work.",
+      "status": "Ongoing Research",
+      "stack": [
+        "Prompt Analysis",
+        "Python",
+        "Data Cleaning",
+        "Visualization",
+        "AI"
+      ],
+      "featured": false,
+      "links": [],
+      "published": true
+    },
+    {
+      "title": "QA Automation Sandbox",
+      "slug": "qa-automation-sandbox",
+      "year": "2026",
+      "summary": "A learning-focused testing project for practicing API testing, regression thinking, and automation fundamentals.",
+      "description": "This sandbox supports my transition into QA by giving me a place to design test cases, document bugs, validate APIs, and gradually build automation habits around real testing scenarios.",
+      "status": "In Progress",
+      "stack": [
+        "Playwright",
+        "Postman",
+        "JavaScript",
+        "API Testing",
+        "QA"
+      ],
+      "featured": false,
+      "links": [],
+      "published": true
+    },
+    {
+      "title": "Portfolio Website",
+      "slug": "portfolio-website",
+      "year": "2026",
+      "summary": "A personal portfolio built to present my transition from engineering and research into quality assurance.",
+      "description": "This site is both a portfolio and a narrative project. It connects my academic background, research work, backend experience, QA direction, and interest in AI-powered testing through a structured, modern interface. The public pages use HTML and CSS and can be hosted on GitHub Pages.",
+      "status": "Live Project",
+      "stack": [
+        "HTML",
+        "CSS",
+        "GitHub Pages"
+      ],
+      "featured": false,
+      "links": [
+        {
+          "label": "Source",
+          "url": "https://github.com/Sushmaac777/Personal-build"
+        }
+      ],
+      "published": true
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Why I’m Moving from Research and Backend Work into QA",
+      "slug": "why-im-moving-into-qa",
+      "excerpt": "A personal note on how research, engineering, and curiosity about software quality brought me toward QA.",
+      "content": "My transition into QA does not feel like starting over. It feels like bringing together everything I have already learned: how to ask better questions, how to analyze evidence, how systems behave internally, and how small issues affect user trust.",
+      "published_at": "2026-06-18",
+      "tags": [
+        "QA",
+        "Career",
+        "Reflection"
+      ],
+      "status": "published",
+      "cover_image": ""
+    },
+    {
+      "title": "What Research Taught Me About Finding Better Bugs",
+      "slug": "what-research-taught-me-about-bugs",
+      "excerpt": "Research trained me to notice patterns, challenge assumptions, and document findings carefully. QA needs the same habits.",
+      "content": "A good bug report is not just a complaint. It is evidence. Research helped me learn how to observe carefully, describe clearly, and support claims with detail, which translates directly into stronger testing work.",
+      "published_at": "2026-05-29",
+      "tags": [
+        "QA",
+        "Research",
+        "Testing"
+      ],
+      "status": "published",
+      "cover_image": ""
+    },
+    {
+      "title": "Testing APIs with a Backend Developer’s Perspective",
+      "slug": "testing-apis-with-backend-perspective",
+      "excerpt": "Understanding backend structure changes the way I think about API validation, edge cases, and reliability.",
+      "content": "Because I have spent time working with backend logic, I often approach API testing by thinking through data flow, expected failure modes, and how small inconsistencies surface in real usage.",
+      "published_at": "2026-05-06",
+      "tags": [
+        "API Testing",
+        "Backend",
+        "QA"
+      ],
+      "status": "published",
+      "cover_image": ""
+    },
+    {
+      "title": "Building a Portfolio That Connects QA, AI, and Research",
+      "slug": "building-a-portfolio-that-connects-qa-ai-and-research",
+      "excerpt": "A portfolio should not just list tools. It should explain the story that connects your skills and direction.",
+      "content": "For me, the portfolio is a place to connect computer engineering, data analytics, research, backend development, and the shift into QA. The goal is not to appear scattered, but to show how each step built the next one.",
+      "published_at": "2026-04-21",
+      "tags": [
+        "Portfolio",
+        "QA",
+        "Career Story"
+      ],
+      "status": "published",
+      "cover_image": ""
+    },
+    {
+      "title": "Small QA Automation Projects as a Learning Strategy",
+      "slug": "small-qa-automation-projects-as-a-learning-strategy",
+      "excerpt": "Automation becomes easier to learn when it grows from realistic testing habits instead of isolated syntax drills.",
+      "content": "I am approaching automation through small, repeatable QA projects: testing APIs, checking core flows, and learning where scripts are genuinely useful. That keeps the learning practical and tied to software quality rather than only tooling.",
+      "published_at": "2026-03-14",
+      "tags": [
+        "Automation",
+        "QA",
+        "Learning"
+      ],
+      "status": "published",
+      "cover_image": ""
+    }
+  ],
+  "publications": [
+    {
+      "title": "Social Media Use and Well-being Among Students",
+      "venue": "Peer-reviewed Academic Publication",
+      "year": "2025",
+      "abstract": "A research paper exploring how social media habits, digital behavior, and well-being intersect in student life, with emphasis on evidence-based interpretation.",
+      "link": "",
+      "tags": [
+        "Research",
+        "Well-being",
+        "Social Media"
+      ]
+    },
+    {
+      "title": "Presenting Digital Well-being Research at an International Conference",
+      "venue": "International Conference Presentation",
+      "year": "2025",
+      "abstract": "A conference presentation built from academic research findings, focusing on structured communication, interpretation of results, and practical relevance.",
+      "link": "",
+      "tags": [
+        "Conference",
+        "Publication",
+        "Presentation"
+      ]
+    },
+    {
+      "title": "Prompt Search Analysis for AI-assisted Workflows",
+      "venue": "Ongoing Independent Research",
+      "year": "2026",
+      "abstract": "A developing research direction examining prompt quality, search behavior, and evaluation habits in AI-supported knowledge work and testing contexts.",
+      "link": "",
+      "tags": [
+        "AI",
+        "Research",
+        "Prompt Engineering"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "QA Engineering Learner",
+      "company": "Independent Transition Track",
+      "period": "2025 - Present",
+      "summary": "Deliberately transitioning into quality assurance through hands-on practice in manual testing, API validation, exploratory testing, and automation fundamentals.",
+      "highlights": [
+        "Creating test cases and structured bug reports around project-based learning.",
+        "Using backend understanding to reason more clearly about failures, edge cases, and expected behavior."
+      ],
+      "technologies": [
+        "Manual Testing",
+        "Postman",
+        "API Testing",
+        "Playwright"
+      ]
+    },
+    {
+      "role": "Researcher",
+      "company": "Academic Research Projects",
+      "period": "2023 - Present",
+      "summary": "Worked on research related to social media, well-being, analytics, and digital behavior, including publication and international presentation.",
+      "highlights": [
+        "Co-authored research and presented findings in an academic setting.",
+        "Strengthened skills in analysis, evidence handling, writing, and structured thinking."
+      ],
+      "technologies": [
+        "Research Methods",
+        "Data Analysis",
+        "Academic Writing",
+        "Visualization"
+      ]
+    },
+    {
+      "role": "Backend Development Contributor",
+      "company": "Project-based Work",
+      "period": "2023 - 2025",
+      "summary": "Built backend logic and data workflows through academic and independent software projects, developing a practical understanding of APIs, databases, and debugging.",
+      "highlights": [
+        "Implemented service logic and data handling for structured applications.",
+        "Learned to view reliability from the system side as well as from the user side."
+      ],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "SQL",
+        "Git"
+      ]
+    },
+    {
+      "role": "Volunteer and Team Contributor",
+      "company": "Student and Community Initiatives",
+      "period": "2021 - 2024",
+      "summary": "Contributed to collaborative and volunteer efforts that strengthened communication, coordination, and accountability in group work.",
+      "highlights": [
+        "Supported planning and teamwork across shared responsibilities.",
+        "Built patience, clarity, and responsibility that now shape my QA mindset."
+      ],
+      "technologies": [
+        "Communication",
+        "Documentation",
+        "Coordination"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Quality Assurance",
+      "description": "Developing a testing mindset that combines structured coverage with curiosity about edge cases and reliability.",
+      "items": [
+        {
+          "name": "Manual Testing",
+          "level": 82
+        },
+        {
+          "name": "Test Case Design",
+          "level": 78
+        },
+        {
+          "name": "Bug Reporting",
+          "level": 84
+        },
+        {
+          "name": "API Testing",
+          "level": 76
+        }
+      ]
+    },
+    {
+      "name": "Programming and Backend",
+      "description": "Engineering foundations that help me understand systems more deeply while testing them.",
+      "items": [
+        {
+          "name": "Python",
+          "level": 84
+        },
+        {
+          "name": "FastAPI",
+          "level": 80
+        },
+        {
+          "name": "SQL",
+          "level": 78
+        },
+        {
+          "name": "Git and GitHub",
+          "level": 75
+        }
+      ]
+    },
+    {
+      "name": "AI, Data, and Research",
+      "description": "A blend of research discipline, analytics, and curiosity about AI-assisted workflows.",
+      "items": [
+        {
+          "name": "Data Analytics",
+          "level": 82
+        },
+        {
+          "name": "Machine Learning",
+          "level": 74
+        },
+        {
+          "name": "Research Writing",
+          "level": 86
+        },
+        {
+          "name": "Data Visualization",
+          "level": 72
+        }
+      ]
+    },
+    {
+      "name": "Tools and Workflow",
+      "description": "Practical tools I use for analysis, project work, and steady QA growth.",
+      "items": [
+        {
+          "name": "Postman",
+          "level": 78
+        },
+        {
+          "name": "Jupyter",
+          "level": 80
+        },
+        {
+          "name": "VS Code",
+          "level": 88
+        },
+        {
+          "name": "Playwright",
+          "level": 64
+        }
+      ]
+    }
+  ],
+  "journey": [
+    {
+      "year": "2020",
+      "title": "Started Computer Engineering",
+      "detail": "Built the technical foundation in programming, systems thinking, software engineering, and structured problem solving."
+    },
+    {
+      "year": "2022",
+      "title": "Research Became a Serious Thread",
+      "detail": "Developed stronger habits around analysis, evidence, writing, and asking better questions through academic research work."
+    },
+    {
+      "year": "2024",
+      "title": "Graduation and Deeper Project Work",
+      "detail": "Strengthened backend, analytics, and applied AI experience through independent and academic software projects."
+    },
+    {
+      "year": "2025",
+      "title": "Research Presentation and QA Shift",
+      "detail": "Presented work internationally and started intentionally moving toward quality assurance, testing, and reliability-focused practice."
+    },
+    {
+      "year": "2026",
+      "title": "Building Toward Automation QA",
+      "detail": "Expanding into API testing, Playwright, AI evaluation, and research-informed testing workflows with long-term focus on dependable systems."
+    }
+  ],
+  "achievements": {
+    "title": "Milestones that shape my journey",
+    "description": "A collection of achievements, recognitions, and accomplishments that reflect my dedication to learning, research, and creating impact.",
+    "stats": [
+      {
+        "label": "Major Achievements",
+        "value": "06+"
+      },
+      {
+        "label": "Scholarships",
+        "value": "02"
+      },
+      {
+        "label": "Published Paper",
+        "value": "01"
+      },
+      {
+        "label": "Conference Talk",
+        "value": "01"
+      }
+    ],
+    "entries": [
+      {
+        "description": "Published a research paper on \"Social Media, Loneliness and Social Comparison\" in an international journal.",
+        "filters": [
+          "Research",
+          "Academic"
+        ],
+        "tag": "Research",
+        "title": "Published Research Paper",
+        "tone": "blue",
+        "year": "2025"
+      },
+      {
+        "description": "Presented my research work at the International Conference - ICESA 2025.",
+        "filters": [
+          "Research"
+        ],
+        "tag": "Research",
+        "title": "International Conference Presentation",
+        "tone": "green",
+        "year": "2025"
+      },
+      {
+        "description": "Graduated with a Bachelor's degree in Computer Engineering.",
+        "filters": [
+          "Academic"
+        ],
+        "tag": "Academic",
+        "title": "Bachelor's Degree in Computer Engineering",
+        "tone": "violet",
+        "year": "2024"
+      },
+      {
+        "description": "Worked as a Research Assistant under Professor Shailesh Bahadur Pandey, contributing to multiple research projects.",
+        "filters": [
+          "Professional",
+          "Research"
+        ],
+        "tag": "Professional",
+        "title": "Research Assistant",
+        "tone": "amber",
+        "year": "2023"
+      },
+      {
+        "description": "Received university scholarship for academic excellence.",
+        "filters": [
+          "Academic"
+        ],
+        "tag": "Academic",
+        "title": "University Scholarship Recipient",
+        "tone": "rose",
+        "year": "2022"
+      },
+      {
+        "description": "Coordinated multiple college events and volunteered in technical and social initiatives.",
+        "filters": [
+          "Leadership",
+          "Community"
+        ],
+        "tag": "Leadership",
+        "title": "Volunteer & Event Coordinator",
+        "tone": "cyan",
+        "year": "2021"
+      }
+    ],
+    "quote": "Every achievement is a stepping stone. I believe in continuous learning, meaningful research, and creating solutions that make a difference."
+  },
+  "customPages": []
+}

@@ -1,0 +1,1082 @@
+{
+  "label": "",
+  "type": "object",
+  "fields": {
+    "settings": {
+      "label": "Site settings",
+      "type": "object",
+      "fields": {
+        "brand_name": {
+          "label": "Brand name",
+          "type": "string",
+          "default": "",
+          "required": true
+        },
+        "brand_meta": {
+          "label": "Brand meta",
+          "type": "string",
+          "default": ""
+        },
+        "footer_title": {
+          "label": "Footer title",
+          "type": "string",
+          "default": ""
+        },
+        "footer_description": {
+          "label": "Footer description",
+          "type": "string",
+          "default": ""
+        },
+        "copyright": {
+          "label": "Copyright",
+          "type": "string",
+          "default": ""
+        },
+        "copyright_year": {
+          "label": "Copyright year",
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "profile": {
+      "label": "Profile & contact",
+      "type": "object",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "type": "string",
+          "default": "",
+          "required": true
+        },
+        "title": {
+          "label": "Title",
+          "type": "string",
+          "default": "",
+          "required": true
+        },
+        "location": {
+          "label": "Location",
+          "type": "string",
+          "default": ""
+        },
+        "summary": {
+          "label": "Summary",
+          "type": "textarea",
+          "default": ""
+        },
+        "email": {
+          "label": "Email",
+          "type": "string",
+          "default": ""
+        },
+        "availability": {
+          "label": "Availability",
+          "type": "string",
+          "default": ""
+        },
+        "social_links": {
+          "label": "Social links",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "label": {
+                "label": "Label",
+                "type": "string",
+                "default": ""
+              },
+              "url": {
+                "label": "Url",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "photo": {
+          "label": "Profile photo",
+          "type": "image",
+          "default": ""
+        }
+      }
+    },
+    "home": {
+      "label": "Home page",
+      "type": "object",
+      "fields": {
+        "headline": {
+          "label": "Headline",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "text": {
+                "label": "Text",
+                "type": "string",
+                "default": ""
+              },
+              "accent": {
+                "label": "Accent",
+                "type": "string",
+                "default": ""
+              },
+              "suffix": {
+                "label": "Suffix",
+                "type": "string",
+                "default": ""
+              }
+            }
+          },
+          "maxItems": 4
+        },
+        "primary_action": {
+          "label": "Primary action",
+          "type": "string",
+          "default": ""
+        },
+        "secondary_action": {
+          "label": "Secondary action",
+          "type": "string",
+          "default": ""
+        },
+        "availability": {
+          "label": "Availability",
+          "type": "string",
+          "default": ""
+        },
+        "callouts": {
+          "label": "Callouts",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "title": {
+                "label": "Title",
+                "type": "string",
+                "default": "",
+                "required": true
+              },
+              "subtitle": {
+                "label": "Subtitle",
+                "type": "string",
+                "default": ""
+              }
+            }
+          },
+          "maxItems": 5
+        },
+        "highlights": {
+          "label": "Highlights",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "label": {
+                "label": "Label",
+                "type": "string",
+                "default": ""
+              },
+              "value": {
+                "label": "Value",
+                "type": "string",
+                "default": ""
+              },
+              "note": {
+                "label": "Note",
+                "type": "string",
+                "default": ""
+              },
+              "link": {
+                "label": "Link",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "services_title": {
+          "label": "Services title",
+          "type": "string",
+          "default": ""
+        },
+        "services_description": {
+          "label": "Services description",
+          "type": "string",
+          "default": ""
+        },
+        "services": {
+          "label": "Services",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "title": {
+                "label": "Title",
+                "type": "string",
+                "default": "",
+                "required": true
+              },
+              "description": {
+                "label": "Description",
+                "type": "textarea",
+                "default": ""
+              }
+            }
+          }
+        },
+        "featured_title": {
+          "label": "Featured title",
+          "type": "string",
+          "default": ""
+        },
+        "featured_description": {
+          "label": "Featured description",
+          "type": "string",
+          "default": ""
+        },
+        "cta_title": {
+          "label": "Cta title",
+          "type": "string",
+          "default": ""
+        },
+        "cta_description": {
+          "label": "Cta description",
+          "type": "textarea",
+          "default": ""
+        },
+        "cta_button": {
+          "label": "Cta button",
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "about": {
+      "label": "About & education",
+      "type": "object",
+      "fields": {
+        "heroEyebrow": {
+          "label": "Hero eyebrow",
+          "type": "string",
+          "default": ""
+        },
+        "heroTitleLead": {
+          "label": "Hero title lead",
+          "type": "string",
+          "default": ""
+        },
+        "heroTitleAccent": {
+          "label": "Hero title accent",
+          "type": "string",
+          "default": ""
+        },
+        "heroParagraphs": {
+          "label": "Hero paragraphs",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "textarea",
+            "default": ""
+          }
+        },
+        "heroPathway": {
+          "label": "Hero pathway",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "title": {
+                "label": "Title",
+                "type": "string",
+                "default": "",
+                "required": true
+              },
+              "subtitle": {
+                "label": "Subtitle",
+                "type": "string",
+                "default": ""
+              }
+            }
+          },
+          "maxItems": 4
+        },
+        "educationTitle": {
+          "label": "Education title",
+          "type": "string",
+          "default": ""
+        },
+        "educationDescription": {
+          "label": "Education description",
+          "type": "string",
+          "default": ""
+        },
+        "educationJourney": {
+          "label": "Education journey",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "year": {
+                "label": "Year",
+                "type": "string",
+                "default": ""
+              },
+              "stage": {
+                "label": "Stage",
+                "type": "string",
+                "default": ""
+              },
+              "institution": {
+                "label": "Institution",
+                "type": "string",
+                "default": ""
+              },
+              "detail": {
+                "label": "Detail",
+                "type": "textarea",
+                "default": ""
+              },
+              "outcome": {
+                "label": "Outcome",
+                "type": "string",
+                "default": ""
+              },
+              "highlights": {
+                "label": "Highlights",
+                "type": "array",
+                "item": {
+                  "label": "Item",
+                  "type": "string",
+                  "default": ""
+                }
+              },
+              "tone": {
+                "label": "Tone",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "lessonTitle": {
+          "label": "Lesson title",
+          "type": "string",
+          "default": ""
+        },
+        "lessonItems": {
+          "label": "Lesson items",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "eyebrow": {
+                "label": "Eyebrow",
+                "type": "string",
+                "default": ""
+              },
+              "title": {
+                "label": "Title",
+                "type": "string",
+                "default": "",
+                "required": true
+              },
+              "description": {
+                "label": "Description",
+                "type": "textarea",
+                "default": ""
+              },
+              "tone": {
+                "label": "Tone",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "skillGroups": {
+          "label": "Skill groups",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "title": {
+                "label": "Title",
+                "type": "string",
+                "default": "",
+                "required": true
+              },
+              "description": {
+                "label": "Description",
+                "type": "textarea",
+                "default": ""
+              },
+              "tone": {
+                "label": "Tone",
+                "type": "string",
+                "default": ""
+              },
+              "items": {
+                "label": "Items",
+                "type": "array",
+                "item": {
+                  "label": "Item",
+                  "type": "string",
+                  "default": ""
+                }
+              }
+            }
+          }
+        },
+        "nextTitle": {
+          "label": "Next title",
+          "type": "string",
+          "default": ""
+        },
+        "nextSteps": {
+          "label": "Next steps",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "title": {
+                "label": "Title",
+                "type": "string",
+                "default": "",
+                "required": true
+              },
+              "description": {
+                "label": "Description",
+                "type": "textarea",
+                "default": ""
+              },
+              "tone": {
+                "label": "Tone",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "quoteLead": {
+          "label": "Quote lead",
+          "type": "string",
+          "default": ""
+        },
+        "quoteAccent": {
+          "label": "Quote accent",
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "pageHeadings": {
+      "label": "Page titles",
+      "type": "object",
+      "fields": {
+        "projects": {
+          "label": "Projects",
+          "type": "object",
+          "fields": {
+            "eyebrow": {
+              "label": "Eyebrow",
+              "type": "string",
+              "default": ""
+            },
+            "title": {
+              "label": "Title",
+              "type": "string",
+              "default": "",
+              "required": true
+            },
+            "description": {
+              "label": "Description",
+              "type": "textarea",
+              "default": ""
+            }
+          }
+        },
+        "publications": {
+          "label": "Research & publications",
+          "type": "object",
+          "fields": {
+            "eyebrow": {
+              "label": "Eyebrow",
+              "type": "string",
+              "default": ""
+            },
+            "title": {
+              "label": "Title",
+              "type": "string",
+              "default": "",
+              "required": true
+            },
+            "description": {
+              "label": "Description",
+              "type": "textarea",
+              "default": ""
+            }
+          }
+        },
+        "experience": {
+          "label": "Experience",
+          "type": "object",
+          "fields": {
+            "eyebrow": {
+              "label": "Eyebrow",
+              "type": "string",
+              "default": ""
+            },
+            "title": {
+              "label": "Title",
+              "type": "string",
+              "default": "",
+              "required": true
+            },
+            "description": {
+              "label": "Description",
+              "type": "textarea",
+              "default": ""
+            }
+          }
+        },
+        "skills": {
+          "label": "Skills",
+          "type": "object",
+          "fields": {
+            "eyebrow": {
+              "label": "Eyebrow",
+              "type": "string",
+              "default": ""
+            },
+            "title": {
+              "label": "Title",
+              "type": "string",
+              "default": "",
+              "required": true
+            },
+            "description": {
+              "label": "Description",
+              "type": "textarea",
+              "default": ""
+            }
+          }
+        },
+        "blog": {
+          "label": "Blog",
+          "type": "object",
+          "fields": {
+            "eyebrow": {
+              "label": "Eyebrow",
+              "type": "string",
+              "default": ""
+            },
+            "title": {
+              "label": "Title",
+              "type": "string",
+              "default": "",
+              "required": true
+            },
+            "description": {
+              "label": "Description",
+              "type": "textarea",
+              "default": ""
+            }
+          }
+        },
+        "contact": {
+          "label": "Contact",
+          "type": "object",
+          "fields": {
+            "eyebrow": {
+              "label": "Eyebrow",
+              "type": "string",
+              "default": ""
+            },
+            "title": {
+              "label": "Title",
+              "type": "string",
+              "default": "",
+              "required": true
+            },
+            "description": {
+              "label": "Description",
+              "type": "textarea",
+              "default": ""
+            }
+          }
+        },
+        "journey": {
+          "label": "Journey",
+          "type": "object",
+          "fields": {
+            "eyebrow": {
+              "label": "Eyebrow",
+              "type": "string",
+              "default": ""
+            },
+            "title": {
+              "label": "Title",
+              "type": "string",
+              "default": "",
+              "required": true
+            },
+            "description": {
+              "label": "Description",
+              "type": "textarea",
+              "default": ""
+            }
+          }
+        }
+      }
+    },
+    "projects": {
+      "label": "Projects",
+      "type": "array",
+      "item": {
+        "label": "Item",
+        "type": "object",
+        "fields": {
+          "title": {
+            "label": "Title",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "slug": {
+            "label": "URL name",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "year": {
+            "label": "Year",
+            "type": "string",
+            "default": ""
+          },
+          "summary": {
+            "label": "Summary",
+            "type": "textarea",
+            "default": ""
+          },
+          "description": {
+            "label": "Description",
+            "type": "textarea",
+            "default": ""
+          },
+          "status": {
+            "label": "Status",
+            "type": "string",
+            "default": ""
+          },
+          "stack": {
+            "label": "Stack",
+            "type": "array",
+            "item": {
+              "label": "Item",
+              "type": "string",
+              "default": ""
+            }
+          },
+          "featured": {
+            "label": "Featured",
+            "type": "boolean",
+            "default": false
+          },
+          "links": {
+            "label": "Links",
+            "type": "array",
+            "item": {
+              "label": "Link",
+              "type": "object",
+              "fields": {
+                "label": {
+                  "label": "Link label",
+                  "type": "string",
+                  "default": ""
+                },
+                "url": {
+                  "label": "URL",
+                  "type": "string",
+                  "default": ""
+                }
+              }
+            }
+          },
+          "published": {
+            "label": "Published",
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "blogs": {
+      "label": "Blog posts",
+      "type": "array",
+      "item": {
+        "label": "Item",
+        "type": "object",
+        "fields": {
+          "title": {
+            "label": "Title",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "slug": {
+            "label": "URL name",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "excerpt": {
+            "label": "Excerpt",
+            "type": "textarea",
+            "default": ""
+          },
+          "content": {
+            "label": "Article content",
+            "type": "textarea",
+            "default": ""
+          },
+          "published_at": {
+            "label": "Publication date",
+            "type": "date",
+            "default": ""
+          },
+          "tags": {
+            "label": "Tags",
+            "type": "array",
+            "item": {
+              "label": "Item",
+              "type": "string",
+              "default": ""
+            }
+          },
+          "status": {
+            "label": "Publication status",
+            "type": "select",
+            "default": "draft",
+            "options": [
+              "draft",
+              "published"
+            ]
+          },
+          "cover_image": {
+            "label": "Cover image",
+            "type": "image",
+            "default": ""
+          }
+        }
+      }
+    },
+    "publications": {
+      "label": "Research & publications",
+      "type": "array",
+      "item": {
+        "label": "Item",
+        "type": "object",
+        "fields": {
+          "title": {
+            "label": "Title",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "venue": {
+            "label": "Venue",
+            "type": "string",
+            "default": ""
+          },
+          "year": {
+            "label": "Year",
+            "type": "string",
+            "default": ""
+          },
+          "abstract": {
+            "label": "Abstract",
+            "type": "textarea",
+            "default": ""
+          },
+          "link": {
+            "label": "Link",
+            "type": "string",
+            "default": ""
+          },
+          "tags": {
+            "label": "Tags",
+            "type": "array",
+            "item": {
+              "label": "Item",
+              "type": "string",
+              "default": ""
+            }
+          }
+        }
+      }
+    },
+    "experience": {
+      "label": "Experience",
+      "type": "array",
+      "item": {
+        "label": "Item",
+        "type": "object",
+        "fields": {
+          "role": {
+            "label": "Role",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "company": {
+            "label": "Company",
+            "type": "string",
+            "default": ""
+          },
+          "period": {
+            "label": "Period",
+            "type": "string",
+            "default": ""
+          },
+          "summary": {
+            "label": "Summary",
+            "type": "textarea",
+            "default": ""
+          },
+          "highlights": {
+            "label": "Highlights",
+            "type": "array",
+            "item": {
+              "label": "Item",
+              "type": "string",
+              "default": ""
+            }
+          },
+          "technologies": {
+            "label": "Technologies",
+            "type": "array",
+            "item": {
+              "label": "Item",
+              "type": "string",
+              "default": ""
+            }
+          }
+        }
+      }
+    },
+    "skills": {
+      "label": "Skills",
+      "type": "array",
+      "item": {
+        "label": "Item",
+        "type": "object",
+        "fields": {
+          "name": {
+            "label": "Name",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "description": {
+            "label": "Description",
+            "type": "textarea",
+            "default": ""
+          },
+          "items": {
+            "label": "Items",
+            "type": "array",
+            "item": {
+              "label": "Item",
+              "type": "object",
+              "fields": {
+                "name": {
+                  "label": "Name",
+                  "type": "string",
+                  "default": "",
+                  "required": true
+                },
+                "level": {
+                  "label": "Level",
+                  "type": "number",
+                  "default": 0,
+                  "min": 0,
+                  "max": 100
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "journey": {
+      "label": "Journey",
+      "type": "array",
+      "item": {
+        "label": "Item",
+        "type": "object",
+        "fields": {
+          "year": {
+            "label": "Year",
+            "type": "string",
+            "default": ""
+          },
+          "title": {
+            "label": "Title",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "detail": {
+            "label": "Detail",
+            "type": "textarea",
+            "default": ""
+          }
+        }
+      }
+    },
+    "achievements": {
+      "label": "Achievements",
+      "type": "object",
+      "fields": {
+        "title": {
+          "label": "Title",
+          "type": "string",
+          "default": "",
+          "required": true
+        },
+        "description": {
+          "label": "Description",
+          "type": "textarea",
+          "default": ""
+        },
+        "stats": {
+          "label": "Stats",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "label": {
+                "label": "Label",
+                "type": "string",
+                "default": ""
+              },
+              "value": {
+                "label": "Value",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "entries": {
+          "label": "Entries",
+          "type": "array",
+          "item": {
+            "label": "Item",
+            "type": "object",
+            "fields": {
+              "description": {
+                "label": "Description",
+                "type": "textarea",
+                "default": ""
+              },
+              "filters": {
+                "label": "Filters",
+                "type": "array",
+                "item": {
+                  "label": "Item",
+                  "type": "string",
+                  "default": ""
+                }
+              },
+              "tag": {
+                "label": "Tag",
+                "type": "string",
+                "default": ""
+              },
+              "title": {
+                "label": "Title",
+                "type": "string",
+                "default": "",
+                "required": true
+              },
+              "tone": {
+                "label": "Tone",
+                "type": "string",
+                "default": ""
+              },
+              "year": {
+                "label": "Year",
+                "type": "string",
+                "default": ""
+              }
+            }
+          }
+        },
+        "quote": {
+          "label": "Quote",
+          "type": "textarea",
+          "default": ""
+        }
+      }
+    },
+    "customPages": {
+      "label": "Custom pages",
+      "type": "array",
+      "item": {
+        "label": "Item",
+        "type": "object",
+        "fields": {
+          "title": {
+            "label": "Title",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "slug": {
+            "label": "URL name",
+            "type": "string",
+            "default": "",
+            "required": true
+          },
+          "description": {
+            "label": "Description",
+            "type": "textarea",
+            "default": ""
+          },
+          "content": {
+            "label": "Article content",
+            "type": "textarea",
+            "default": ""
+          },
+          "status": {
+            "label": "Status",
+            "type": "select",
+            "default": "draft",
+            "options": [
+              "draft",
+              "published"
+            ]
+          },
+          "show_in_navigation": {
+            "label": "Show in footer navigation",
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    }
+  }
+}
