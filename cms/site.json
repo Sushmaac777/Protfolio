@@ -332,8 +332,8 @@
   },
   "projects": [
     {
-      "title": "Kidney Disease Prediction System",
-      "slug": "kidney-disease-prediction-system",
+      "title": "Kidney Disease Prediction Systems",
+      "slug": "kidney-disease-prediction-systems",
       "year": "2025",
       "summary": "A machine learning project focused on predicting chronic kidney disease from structured clinical data.",
       "description": "This project explored how data preprocessing, feature analysis, and model comparison can support early disease prediction. It strengthened my foundation in data cleaning, evaluation, and interpreting technical results clearly.",
