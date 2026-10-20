@@ -332,7 +332,7 @@
   },
   "projects": [
     {
-      "title": "Kidney Disease Prediction Systems",
+      "title": "Kidney Disease Prediction Systems project",
       "slug": "kidney-disease-prediction-systems",
       "year": "2025",
       "summary": "A machine learning project focused on predicting chronic kidney disease from structured clinical data.",
