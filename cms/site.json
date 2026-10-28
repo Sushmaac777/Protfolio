@@ -210,19 +210,19 @@
         "tone": "blue"
       },
       {
-        "eyebrow": "Engineering",
-        "title": "Systems Thinking",
-        "description": "Understanding how complex systems are designed, built, and maintained.",
-        "tone": "green"
-      },
-      {
         "eyebrow": "Research and analytical thinking",
         "title": "Evidence-based problem-solving",
         "description": "Investigating problems with evidence, not assumptions, drives meaningful results.",
         "tone": "violet"
       },
       {
-        "eyebrow": "",
+        "eyebrow": "Development",
+        "title": "Systems Thinking",
+        "description": "Understanding how complex systems are designed, built, and maintained.",
+        "tone": "green"
+      },
+      {
+        "eyebrow": "Research",
         "title": "Persistence through unfamiliar challenges",
         "description": "",
         "tone": "amber"
