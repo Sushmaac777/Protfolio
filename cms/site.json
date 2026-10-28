@@ -48,45 +48,45 @@
         "suffix": ""
       }
     ],
-    "primary_action": "Explore My Work",
-    "secondary_action": "View Résumé",
-    "availability": "Open for selected collaborations",
+    "primary_action": "Explore My Research",
+    "secondary_action": "Get in Touch",
+    "availability": "Open to Research Collaborations",
     "callouts": [
       {
         "title": "Computer Engineer",
-        "subtitle": "B.E. (2024)"
+        "subtitle": "B.E. in Computer Engineering · Pokhara University"
       },
       {
         "title": "Based in",
-        "subtitle": "Kathmandu, Nepal"
+        "subtitle": "Nepal · Connecting Technology and Human Behaviour"
       },
       {
         "title": "Researcher",
-        "subtitle": "Published Author"
+        "subtitle": "NLP · Computational Social Science · Digital Wellbeing"
       },
       {
-        "title": "Developer",
-        "subtitle": "Backend Focused"
+        "title": "Applied AI",
+        "subtitle": "Backend Systems · AI Integration · Data-Driven Research"
       }
     ],
     "highlights": [
       {
-        "label": "Research Publication",
-        "value": "01",
-        "note": "Published paper",
-        "link": "research/index.html"
+        "label": "IEEE Publication",
+        "value": "Published Research",
+        "note": "nvestigating Instagram's relationship with loneliness, happiness, and social comparison.",
+        "link": "https://ieeexplore.ieee.org/document/10969409"
       },
       {
-        "label": "Conference",
-        "value": "01",
-        "note": "International presentation",
-        "link": "research/index.html"
+        "label": "International Conference",
+        "value": "Abstract Presented",
+        "note": "ICASECW-24",
+        "link": ""
       },
       {
         "label": "Projects",
-        "value": "06",
+        "value": "04",
         "note": "Technical projects",
-        "link": "projects/index.html"
+        "link": "https://github.com/Sushmaac777"
       },
       {
         "label": "Experience",
@@ -96,32 +96,28 @@
       },
       {
         "label": "Current Focus",
-        "value": "QA",
-        "note": "Test automation",
-        "link": "skills/index.html"
+        "value": "NLP Research",
+        "note": "Developing my research direction at the intersection of NLP, online behaviour, and digital wellbeing.",
+        "link": ""
       }
     ],
-    "services_title": "What I Do",
-    "services_description": "I combine engineering, research, and quality assurance to build better, smarter, and more reliable software.",
+    "services_title": "Research & Technical Expertise",
+    "services_description": "I combine computational thinking, data-driven analysis, and software development to investigate research questions and build practical AI solutions.",
     "services": [
       {
-        "title": "Backend Development",
-        "description": "Building scalable APIs and robust backend services with Python."
+        "title": "NLP & Computational Research",
+        "description": "Applying natural language processing and machine learning to explore language, online communication, and human behaviour."
       },
       {
-        "title": "AI & Data Analytics",
-        "description": "Applying machine learning and analytics to solve real-world problems."
-      },
-      {
-        "title": "Research",
-        "description": "Exploring AI, social media, wellbeing, and disaster prediction."
+        "title": "Applied AI & Backend Development",
+        "description": "Building APIs, integrating AI capabilities, and testing software systems to support practical applications."
       }
     ],
-    "featured_title": "Featured work across QA practice, AI and backend projects, and research.",
-    "featured_description": "A few selected projects that show how testing, analysis, and engineering come together in my work.",
-    "cta_title": "I’m currently seeking opportunities to contribute as a QA Engineer.",
-    "cta_description": "I want to keep growing in automation testing, software quality, and AI-enabled systems while bringing strong research habits and backend understanding to the team.",
-    "cta_button": "Get in Touch"
+    "featured_title": "Understanding People Through Data and Language",
+    "featured_description": "My research journey brings together computer science and questions about human experience. I am particularly interested in using NLP and computational methods to study online behaviour, psychological wellbeing, and the ways people express themselves in digital spaces.",
+    "cta_title": "Let's Explore a Research Question Together",
+    "cta_description": "Interested in NLP, computational social science, or digital wellbeing? I'd welcome conversations with researchers and collaborators exploring these areas.",
+    "cta_button": "Connect With Me"
   },
   "about": {
     "heroEyebrow": "About me",
