@@ -230,58 +230,44 @@
     ],
     "skillGroups": [
       {
-        "title": "Technical DNA",
-        "description": "Tools and capabilities I use across QA, backend development, data handling, and research.",
+        "title": "Technical Foundations",
+        "description": "Technical friends of mine",
         "tone": "blue",
         "items": [
-          "Manual Testing",
-          "API Testing",
-          "Postman",
-          "Playwright",
-          "SQL",
-          "Python",
-          "FastAPI",
-          "TypeScript",
-          "Research Methods",
+          "NLP & Machine Learning",
           "Data Analysis",
-          "Git & GitHub"
+          "Backend Development",
+          "Applied AI"
         ]
       },
       {
-        "title": "Human Strengths",
+        "title": "Research & Personal Strengths",
         "description": "Personal qualities strengthened by academic transition, research, teamwork, and long-term self-driven growth.",
         "tone": "violet",
         "items": [
-          "Analytical Thinking",
-          "Resilience",
-          "Adaptability",
-          "Documentation",
-          "Communication",
-          "Presentation",
-          "Collaboration",
-          "Leadership",
-          "Time Management",
-          "Curiosity",
-          "Consistency",
-          "Ownership"
+          "Research Design",
+          "Critical Thinking",
+          "Analytical Reasoning",
+          "Academic Writing",
+          "Independent Learning and attention to details"
         ]
       }
     ],
     "nextTitle": "What I'm Building Next",
     "nextSteps": [
       {
-        "title": "Quality Engineering",
-        "description": "Deepening my understanding of QA processes, test design, and product quality from both user and system perspectives.",
-        "tone": "blue"
+        "title": "Natural Language Processing",
+        "description": "Developing my understanding of NLP methods for analysing language, emotion, and human expression in digital spaces.",
+        "tone": "Blue"
       },
       {
-        "title": "Research & Growth",
-        "description": "Continuing my master's journey while exploring AI, data-driven testing, and research-informed software solutions.",
-        "tone": "violet"
+        "title": "Computational Social Science",
+        "description": "Exploring how computational methods can help investigate online behaviour, social interaction, and digital wellbeing.",
+        "tone": "Violet"
       }
     ],
-    "quoteLead": "Good software isn't just software that works.",
-    "quoteAccent": "It's software people can trust."
+    "quoteLead": "Every dataset tells us something.",
+    "quoteAccent": "The deeper question is what it can teach us about people."
   },
   "pageHeadings": {
     "projects": {
