@@ -8,12 +8,12 @@
     "copyright_year": "2026"
   },
   "profile": {
-    "name": "Sushma",
-    "title": "QA Engineer | Computer Engineer | AI & Data Analytics Researcher",
+    "name": "Sushma Acharya",
+    "title": " Computer Engineer | NLP Researcher",
     "location": "Kathmandu, Nepal",
-    "summary": "I am a computer engineer shaping my career in quality assurance after building experience across research, data analytics, backend development, and applied AI. I enjoy understanding how systems behave, where they break, and how better testing can make software more trustworthy.",
-    "email": "hello@sushma.dev",
-    "availability": "Open to QA, test automation, research-informed software, and backend-adjacent roles.",
+    "summary": "I am a computer engineer shaping my career in  Natural Language Processing (NLP) and computational social science, with experience spanning academic research, data analytics, backend development, and applied AI.\n\nMy research interests lie at the intersection of language, human behaviour, and digital wellbeing. I am particularly interested in understanding how people express emotions, communicate experiences, and reveal patterns of behaviour through their interactions in online spaces.\n\nAs an IEEE-published researcher, I enjoy combining computational methods with behavioural insights to explore meaningful questions about human experiences in the digital world. I aim to develop research that goes beyond analysing data to uncover the patterns, contexts, and human experiences behind it.\n\nI am continuously exploring how NLP and AI can help us better understand people and the digital environments they inhabit.",
+    "email": "sushma.acharya5858@gmail.com",
+    "availability": "Open to Research collaborations",
     "social_links": [
       {
         "label": "GitHub",
@@ -21,7 +21,11 @@
       },
       {
         "label": "Email",
-        "url": "mailto:hello@sushma.dev"
+        "url": "mailto:sushma.acharya5858@gmail.com"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sushmaacharyaa/"
       }
     ],
     "photo": "assets/images/profile-photo.png"
