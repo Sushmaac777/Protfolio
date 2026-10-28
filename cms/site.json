@@ -401,37 +401,9 @@
         "Publication",
         "Presentation"
       ]
-    },
-    {
-      "title": "Prompt Search Analysis for AI-assisted Workflows",
-      "venue": "Ongoing Independent Research",
-      "year": "2026",
-      "abstract": "A developing research direction examining prompt quality, search behavior, and evaluation habits in AI-supported knowledge work and testing contexts.",
-      "link": "",
-      "tags": [
-        "AI",
-        "Research",
-        "Prompt Engineering"
-      ]
     }
   ],
   "experience": [
-    {
-      "role": "QA Engineering Learner",
-      "company": "Independent Transition Track",
-      "period": "2025 - Present",
-      "summary": "Deliberately transitioning into quality assurance through hands-on practice in manual testing, API validation, exploratory testing, and automation fundamentals.",
-      "highlights": [
-        "Creating test cases and structured bug reports around project-based learning.",
-        "Using backend understanding to reason more clearly about failures, edge cases, and expected behavior."
-      ],
-      "technologies": [
-        "Manual Testing",
-        "Postman",
-        "API Testing",
-        "Playwright"
-      ]
-    },
     {
       "role": "Researcher",
       "company": "Academic Research Projects",
@@ -481,28 +453,6 @@
     }
   ],
   "skills": [
-    {
-      "name": "Quality Assurance",
-      "description": "Developing a testing mindset that combines structured coverage with curiosity about edge cases and reliability.",
-      "items": [
-        {
-          "name": "Manual Testing",
-          "level": 82
-        },
-        {
-          "name": "Test Case Design",
-          "level": 78
-        },
-        {
-          "name": "Bug Reporting",
-          "level": 84
-        },
-        {
-          "name": "API Testing",
-          "level": 76
-        }
-      ]
-    },
     {
       "name": "Programming and Backend",
       "description": "Engineering foundations that help me understand systems more deeply while testing them.",
@@ -585,16 +535,6 @@
       "year": "2024",
       "title": "Graduation and Deeper Project Work",
       "detail": "Strengthened backend, analytics, and applied AI experience through independent and academic software projects."
-    },
-    {
-      "year": "2025",
-      "title": "Research Presentation and QA Shift",
-      "detail": "Presented work internationally and started intentionally moving toward quality assurance, testing, and reliability-focused practice."
-    },
-    {
-      "year": "2026",
-      "title": "Building Toward Automation QA",
-      "detail": "Expanding into API testing, Playwright, AI evaluation, and research-informed testing workflows with long-term focus on dependable systems."
     }
   ],
   "achievements": {
