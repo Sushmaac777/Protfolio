@@ -308,18 +308,17 @@
   },
   "projects": [
     {
-      "title": "Kidney Disease Prediction Systems project",
-      "slug": "kidney-disease-prediction-systems",
-      "year": "2025",
-      "summary": "A machine learning project focused on predicting chronic kidney disease from structured clinical data.",
-      "description": "This project explored how data preprocessing, feature analysis, and model comparison can support early disease prediction. It strengthened my foundation in data cleaning, evaluation, and interpreting technical results clearly.",
-      "status": "Academic Project",
+      "title": "Social Media and Well-being Research",
+      "slug": "social-media-and-wellbeing-research",
+      "year": "2024",
+      "summary": "A research project examining how social media use relates to well-being, behavior, and digital habits.",
+      "description": "This project brought together research design, literature review, data interpretation, and academic writing. It became a key part of my transition story by sharpening how I investigate evidence and communicate structured findings.",
+      "status": "Published Research",
       "stack": [
-        "Python",
-        "Scikit-learn",
-        "Pandas",
-        "Jupyter",
-        "Machine Learning"
+        "Research Methods",
+        "Survey Analysis",
+        "Statistics",
+        "Academic Writing"
       ],
       "featured": true,
       "links": [],
@@ -344,77 +343,21 @@
       "published": true
     },
     {
-      "title": "Social Media and Well-being Research",
-      "slug": "social-media-and-wellbeing-research",
-      "year": "2024",
-      "summary": "A research project examining how social media use relates to well-being, behavior, and digital habits.",
-      "description": "This project brought together research design, literature review, data interpretation, and academic writing. It became a key part of my transition story by sharpening how I investigate evidence and communicate structured findings.",
-      "status": "Published Research",
+      "title": "Kidney Disease Prediction Systems project",
+      "slug": "kidney-disease-prediction-systems",
+      "year": "2025",
+      "summary": "A machine learning project focused on predicting chronic kidney disease from structured clinical data.",
+      "description": "This project explored how data preprocessing, feature analysis, and model comparison can support early disease prediction. It strengthened my foundation in data cleaning, evaluation, and interpreting technical results clearly.",
+      "status": "Academic Project",
       "stack": [
-        "Research Methods",
-        "Survey Analysis",
-        "Statistics",
-        "Academic Writing"
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "Jupyter",
+        "Machine Learning"
       ],
       "featured": true,
       "links": [],
-      "published": true
-    },
-    {
-      "title": "Prompt Search Analysis",
-      "slug": "prompt-search-analysis",
-      "year": "2026",
-      "summary": "An exploratory study of how people search, refine, and evaluate prompts in AI-assisted workflows.",
-      "description": "This ongoing research interest connects my curiosity about AI with my growing interest in quality. It looks at prompt behavior, clarity, reliability, and how structured evaluation can improve AI-supported work.",
-      "status": "Ongoing Research",
-      "stack": [
-        "Prompt Analysis",
-        "Python",
-        "Data Cleaning",
-        "Visualization",
-        "AI"
-      ],
-      "featured": false,
-      "links": [],
-      "published": true
-    },
-    {
-      "title": "QA Automation Sandbox",
-      "slug": "qa-automation-sandbox",
-      "year": "2026",
-      "summary": "A learning-focused testing project for practicing API testing, regression thinking, and automation fundamentals.",
-      "description": "This sandbox supports my transition into QA by giving me a place to design test cases, document bugs, validate APIs, and gradually build automation habits around real testing scenarios.",
-      "status": "In Progress",
-      "stack": [
-        "Playwright",
-        "Postman",
-        "JavaScript",
-        "API Testing",
-        "QA"
-      ],
-      "featured": false,
-      "links": [],
-      "published": true
-    },
-    {
-      "title": "Portfolio Website",
-      "slug": "portfolio-website",
-      "year": "2026",
-      "summary": "A personal portfolio built to present my transition from engineering and research into quality assurance.",
-      "description": "This site is both a portfolio and a narrative project. It connects my academic background, research work, backend experience, QA direction, and interest in AI-powered testing through a structured, modern interface. The public pages use HTML and CSS and can be hosted on GitHub Pages.",
-      "status": "Live Project",
-      "stack": [
-        "HTML",
-        "CSS",
-        "GitHub Pages"
-      ],
-      "featured": false,
-      "links": [
-        {
-          "label": "Source",
-          "url": "https://github.com/Sushmaac777/Personal-build"
-        }
-      ],
       "published": true
     }
   ],
@@ -429,62 +372,6 @@
         "QA",
         "Career",
         "Reflection"
-      ],
-      "status": "published",
-      "cover_image": ""
-    },
-    {
-      "title": "What Research Taught Me About Finding Better Bugs",
-      "slug": "what-research-taught-me-about-bugs",
-      "excerpt": "Research trained me to notice patterns, challenge assumptions, and document findings carefully. QA needs the same habits.",
-      "content": "A good bug report is not just a complaint. It is evidence. Research helped me learn how to observe carefully, describe clearly, and support claims with detail, which translates directly into stronger testing work.",
-      "published_at": "2026-05-29",
-      "tags": [
-        "QA",
-        "Research",
-        "Testing"
-      ],
-      "status": "published",
-      "cover_image": ""
-    },
-    {
-      "title": "Testing APIs with a Backend Developer’s Perspective",
-      "slug": "testing-apis-with-backend-perspective",
-      "excerpt": "Understanding backend structure changes the way I think about API validation, edge cases, and reliability.",
-      "content": "Because I have spent time working with backend logic, I often approach API testing by thinking through data flow, expected failure modes, and how small inconsistencies surface in real usage.",
-      "published_at": "2026-05-06",
-      "tags": [
-        "API Testing",
-        "Backend",
-        "QA"
-      ],
-      "status": "published",
-      "cover_image": ""
-    },
-    {
-      "title": "Building a Portfolio That Connects QA, AI, and Research",
-      "slug": "building-a-portfolio-that-connects-qa-ai-and-research",
-      "excerpt": "A portfolio should not just list tools. It should explain the story that connects your skills and direction.",
-      "content": "For me, the portfolio is a place to connect computer engineering, data analytics, research, backend development, and the shift into QA. The goal is not to appear scattered, but to show how each step built the next one.",
-      "published_at": "2026-04-21",
-      "tags": [
-        "Portfolio",
-        "QA",
-        "Career Story"
-      ],
-      "status": "published",
-      "cover_image": ""
-    },
-    {
-      "title": "Small QA Automation Projects as a Learning Strategy",
-      "slug": "small-qa-automation-projects-as-a-learning-strategy",
-      "excerpt": "Automation becomes easier to learn when it grows from realistic testing habits instead of isolated syntax drills.",
-      "content": "I am approaching automation through small, repeatable QA projects: testing APIs, checking core flows, and learning where scripts are genuinely useful. That keeps the learning practical and tied to software quality rather than only tooling.",
-      "published_at": "2026-03-14",
-      "tags": [
-        "Automation",
-        "QA",
-        "Learning"
       ],
       "status": "published",
       "cover_image": ""
