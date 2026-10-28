@@ -125,32 +125,32 @@
   },
   "about": {
     "heroEyebrow": "About me",
-    "heroTitleLead": "Every opportunity I've earned began with learning how",
-    "heroTitleAccent": "to adapt.",
+    "heroTitleLead": "A journey shaped by",
+    "heroTitleAccent": "curiosity, persistence, and discovery.",
     "heroParagraphs": [
-      "My journey into software engineering wasn't defined by shortcuts or perfect conditions. Growing up with a full Nepali-medium education meant that every new academic stage demanded extra effort, especially while transitioning into science and engineering. Rather than seeing those challenges as limitations, they became the foundation of how I approach learning today: patiently, consistently, and with curiosity.",
-      "Those experiences eventually led me toward computer engineering, academic research, backend development, and now quality assurance, where I enjoy understanding how software behaves, uncovering hidden issues, and helping build systems people can rely on."
+      "I began my academic journey with a Nepali-medium education and gradually found my way into computer engineering, research, and applied technology. Each transition challenged me to learn beyond what was familiar, strengthening my adaptability, independence, and curiosity.\n\nToday, I bring together experience in academic research, data analytics, backend development, and applied AI as I shape my path toward natural language processing and computational social science. I am particularly interested in understanding how people express themselves, interact, and experience wellbeing in online spaces.\n\nWhat motivates me is the opportunity to connect technical methods with meaningful human questions, using data not merely to identify patterns, but to better understand the experiences behind them.",
+      "Those experiences eventually led me toward computer engineering, academic research, and  backend development."
     ],
     "heroPathway": [
       {
         "title": "Learning",
-        "subtitle": "Building strong foundations"
+        "subtitle": "Building foundations and adapting to new challenges"
       },
       {
         "title": "Engineering",
-        "subtitle": "Solving problems with code"
+        "subtitle": "Turning computational ideas into practical systems"
       },
       {
         "title": "Research",
-        "subtitle": "Exploring, analyzing and discovering"
+        "subtitle": "Investigating data, digital experiences, and human behaviour"
       },
       {
-        "title": "Quality",
-        "subtitle": "Making software reliable and trustworthy"
+        "title": "Understanding",
+        "subtitle": "Exploring language, NLP, and computational social science"
       }
     ],
     "educationTitle": "My Academic Journey",
-    "educationDescription": "A story of growth, resilience, and consistent progress.",
+    "educationDescription": "From foundational learning to engineering and research, each stage has expanded how I think, learn, and approach complex problems.",
     "educationJourney": [
       {
         "year": "2015",
@@ -201,11 +201,11 @@
         "tone": "amber"
       }
     ],
-    "lessonTitle": "What Each Stage Taught Me",
+    "lessonTitle": "What Each Stage Taught Me, Lesson items- Adaptability and independent learning - Systems thinking - Research and analytical thinking - Evidence-based problem-solving - Attention to detail - Persistence through unfamiliar challenges",
     "lessonItems": [
       {
         "eyebrow": "School",
-        "title": "Discipline",
+        "title": "Adaptability and independent learning",
         "description": "Consistency and daily effort matter more than talent.",
         "tone": "blue"
       },
@@ -216,15 +216,15 @@
         "tone": "green"
       },
       {
-        "eyebrow": "Research",
-        "title": "Analytical Thinking",
+        "eyebrow": "Research and analytical thinking",
+        "title": "Evidence-based problem-solving",
         "description": "Investigating problems with evidence, not assumptions, drives meaningful results.",
         "tone": "violet"
       },
       {
-        "eyebrow": "Quality Assurance",
-        "title": "Attention to Detail",
-        "description": "Every edge case is an opportunity to improve someone's experience.",
+        "eyebrow": "",
+        "title": "Persistence through unfamiliar challenges",
+        "description": "",
         "tone": "amber"
       }
     ],
@@ -241,7 +241,6 @@
           "SQL",
           "Python",
           "FastAPI",
-          "React",
           "TypeScript",
           "Research Methods",
           "Data Analysis",
@@ -274,11 +273,6 @@
         "title": "Quality Engineering",
         "description": "Deepening my understanding of QA processes, test design, and product quality from both user and system perspectives.",
         "tone": "blue"
-      },
-      {
-        "title": "Automation",
-        "description": "Building reliable test automation suites with Playwright and API testing to improve efficiency and software reliability.",
-        "tone": "green"
       },
       {
         "title": "Research & Growth",
