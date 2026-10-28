@@ -111,6 +111,10 @@
       {
         "title": "Applied AI & Backend Development",
         "description": "Building APIs, integrating AI capabilities, and testing software systems to support practical applications."
+      },
+      {
+        "title": "Data Analysis & Research",
+        "description": "Analysing datasets, investigating research questions, and translating computational findings into meaningful insights."
       }
     ],
     "featured_title": "Understanding People Through Data and Language",
