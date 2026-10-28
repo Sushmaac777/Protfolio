@@ -271,39 +271,39 @@
   },
   "pageHeadings": {
     "projects": {
-      "eyebrow": "Projects",
-      "title": "Projects that show the path from research and analytics toward QA.",
-      "description": "Browse the projects below, or select a technology to narrow the collection."
+      "eyebrow": "Selected Work",
+      "title": "Projects at the Intersection of AI & Research",
+      "description": "A collection of research and technical projects spanning natural language processing, data analysis, machine learning, and applied AI, with an emphasis on solving meaningful problems."
     },
     "publications": {
-      "eyebrow": "Research",
-      "title": "Published work, presentations, and evolving research interests.",
-      "description": ""
+      "eyebrow": "Academic Contributions",
+      "title": "Research & Publications",
+      "description": "My research explores digital experiences, social comparison, psychological wellbeing, and the potential of computational methods to understand human behaviour. This page brings together my publications, ongoing research, and evolving interests in NLP and computational social science."
     },
     "experience": {
-      "eyebrow": "Experience",
-      "title": "A journey through engineering study, research, backend work, and QA transition.",
-      "description": ""
+      "eyebrow": "Professional Background",
+      "title": "Experience Across Research & Technology",
+      "description": "My professional journey spans academic research, data analytics, backend development, and applied AI. Each experience has strengthened my ability to approach technical challenges, work with data, and translate ideas into practical solutions."
     },
     "skills": {
-      "eyebrow": "Skills",
-      "title": "A toolkit shaped by engineering, research, analytics, and quality-focused learning.",
-      "description": ""
+      "eyebrow": "Technical & Research Toolkit",
+      "title": "Skills for Research & Intelligent Systems",
+      "description": "My skills combine computer engineering foundations with research methods, data analysis, programming, NLP, machine learning, and AI integration. I continue to develop the tools and methods needed to investigate complex questions about language and human behaviour."
     },
     "blog": {
-      "eyebrow": "Blog",
-      "title": "Notes on QA learning, research thinking, AI workflows, and software quality.",
-      "description": ""
+      "eyebrow": "Notes & Reflections",
+      "title": "Ideas, Research & Learning",
+      "description": "Reflections on research, NLP, digital wellbeing, human behaviour, and the process of learning across disciplines. A space to share ideas, lessons, and questions emerging from my academic and technical journey."
     },
     "contact": {
-      "eyebrow": "Contact",
-      "title": "Let’s build something thoughtful.",
-      "description": "If you have a project, role, or collaboration in mind, send a note."
+      "eyebrow": "Connect & Collaborate",
+      "title": "Let's Connect Through Research",
+      "description": "I welcome connections with researchers, academics, and collaborators interested in NLP, computational social science, digital wellbeing, and human-centred AI. I'm always interested in thoughtful conversations and opportunities to explore meaningful research questions."
     },
     "journey": {
-      "eyebrow": "Journey",
-      "title": "A timeline of how engineering, research, and QA began connecting.",
-      "description": "A quick way to understand how the story has evolved over time."
+      "eyebrow": "Learning in Progress",
+      "title": "My Journey Through Technology & Research",
+      "description": "From a Nepali-medium education to computer engineering, research, and applied AI, my journey has been shaped by curiosity, persistence, and continuous learning. This timeline captures the experiences, milestones, and evolving interests that are shaping my path toward NLP research and computational social science."
     }
   },
   "projects": [
