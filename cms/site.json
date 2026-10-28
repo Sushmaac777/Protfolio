@@ -34,17 +34,17 @@
     "headline": [
       {
         "text": "Hi, I'm ",
-        "accent": "Sushma.",
+        "accent": "Sushma Acharya",
         "suffix": ""
       },
       {
-        "text": "I build ",
-        "accent": "reliable software",
-        "suffix": ""
+        "text": "I explore",
+        "accent": "Language & Human Behaviour",
+        "suffix": "through computational research."
       },
       {
         "text": "and explore ",
-        "accent": "AI for impact.",
+        "accent": "NLP & Digital Wellbeing",
         "suffix": ""
       }
     ],
@@ -59,10 +59,6 @@
       {
         "title": "Based in",
         "subtitle": "Kathmandu, Nepal"
-      },
-      {
-        "title": "QA Engineer",
-        "subtitle": "Quality Driven"
       },
       {
         "title": "Researcher",
@@ -108,10 +104,6 @@
     "services_title": "What I Do",
     "services_description": "I combine engineering, research, and quality assurance to build better, smarter, and more reliable software.",
     "services": [
-      {
-        "title": "Quality Assurance",
-        "description": "Ensuring software quality through manual, automated, and API testing."
-      },
       {
         "title": "Backend Development",
         "description": "Building scalable APIs and robust backend services with Python."
