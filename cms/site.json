@@ -128,8 +128,7 @@
     "heroTitleLead": "A journey shaped by",
     "heroTitleAccent": "curiosity, persistence, and discovery.",
     "heroParagraphs": [
-      "I began my academic journey with a Nepali-medium education and gradually found my way into computer engineering, research, and applied technology. Each transition challenged me to learn beyond what was familiar, strengthening my adaptability, independence, and curiosity.\n\nToday, I bring together experience in academic research, data analytics, backend development, and applied AI as I shape my path toward natural language processing and computational social science. I am particularly interested in understanding how people express themselves, interact, and experience wellbeing in online spaces.\n\nWhat motivates me is the opportunity to connect technical methods with meaningful human questions, using data not merely to identify patterns, but to better understand the experiences behind them.",
-      "Those experiences eventually led me toward computer engineering, academic research, and  backend development."
+      "I began my academic journey with a Nepali-medium education and gradually found my way into computer engineering, research, and applied technology. Each transition challenged me to learn beyond what was familiar, strengthening my adaptability, independence, and curiosity.\n\nToday, I bring together experience in academic research, data analytics, backend development, and applied AI as I shape my path toward natural language processing and computational social science. I am particularly interested in understanding how people express themselves, interact, and experience wellbeing in online spaces.\n\nWhat motivates me is the opportunity to connect technical methods with meaningful human questions, using data not merely to identify patterns, but to better understand the experiences behind them."
     ],
     "heroPathway": [
       {
@@ -167,7 +166,7 @@
         "year": "2017",
         "stage": "+2 Science",
         "institution": "Kaski Modernized Academy",
-        "detail": "From 2.66 GPA in grade 11 to 3.29 GPA in grade 12 and graduated among top 3.",
+        "detail": "From 2.66 GPA in grade 11 to 3.29 GPA in grade 12 and graduated among top 3 in class.",
         "outcome": "Top 3 in Class",
         "highlights": [
           "2.66 in Grade 11",
@@ -179,7 +178,7 @@
         "year": "2024",
         "stage": "B.E. in Computer Engineering",
         "institution": "Everest Engineering College",
-        "detail": "Completed with 3.64 GPA in distinction, PU scholarship, class topper, and major project award.",
+        "detail": "Completed with 3.64 GPA in distinction, PU scholarship received, class topper, and major project award winner.",
         "outcome": "Distinction & Class Topper",
         "highlights": [
           "3.64 GPA",
@@ -204,13 +203,13 @@
     "lessonTitle": "What Each Stage Taught Me, Lesson items- Adaptability and independent learning - Systems thinking - Research and analytical thinking - Evidence-based problem-solving - Attention to detail - Persistence through unfamiliar challenges",
     "lessonItems": [
       {
-        "eyebrow": "School",
+        "eyebrow": "Research",
         "title": "Adaptability and independent learning",
         "description": "Consistency and daily effort matter more than talent.",
         "tone": "blue"
       },
       {
-        "eyebrow": "Research and analytical thinking",
+        "eyebrow": "Research and Engineering",
         "title": "Evidence-based problem-solving",
         "description": "Investigating problems with evidence, not assumptions, drives meaningful results.",
         "tone": "violet"
@@ -222,7 +221,7 @@
         "tone": "green"
       },
       {
-        "eyebrow": "Research",
+        "eyebrow": "Research publication",
         "title": "Persistence through unfamiliar challenges",
         "description": "",
         "tone": "amber"
@@ -249,7 +248,8 @@
           "Critical Thinking",
           "Analytical Reasoning",
           "Academic Writing",
-          "Independent Learning and attention to details"
+          "Independent Learning and attention to details",
+          "Communication and collaboration"
         ]
       }
     ],
